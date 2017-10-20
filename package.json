@@ -1,8 +1,8 @@
 {
-  "name": "slackin",
-  "version": "0.14.0",
+  "name": "slackin-extended",
+  "version": "1.0.0",
   "description": "Public Slack organizations made easy",
-  "repository": "rauchg/slackin",
+  "repository": "emedvedev/slackin-extended",
   "main": "dist/index",
   "files": [
     "dist",
@@ -31,6 +31,7 @@
     "gulp-sass": "^3.1.0",
     "hostenv": "1.0.1",
     "opentype.js": "0.4.4",
+    "pug": "^2.0.0-rc.4",
     "socket.io": "1.4.8",
     "superagent": "0.21.0",
     "vd": "0.1.0"
@@ -53,7 +54,10 @@
     "extends": "default",
     "parser": "babel-eslint",
     "rules": {
-      "no-var": 0
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ]
     }
   },
   "scripts": {

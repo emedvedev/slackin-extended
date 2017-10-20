@@ -1,0 +1,11 @@
+html
+  head
+    title Join #{name} on Slack!
+    script(src='https://www.google.com/recaptcha/api.js')
+    meta(name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no')
+    link(rel='shortcut icon', href='https://slack.global.ssl.fastly.net/272a/img/icons/favicon-32.png')
+    if css
+      link(rel='stylesheet', href=css)
+  body
+    include splash.pug
+

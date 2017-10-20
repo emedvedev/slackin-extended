@@ -6,14 +6,14 @@ import sass from 'gulp-sass'
 const paths = {
   in: {
     js: 'lib/*.js',
-    assets: 'lib/assets/*',
-    sass: 'lib/*.scss'
+    assets: 'assets/*',
+    sass: 'scss/*.scss',
   },
   out: {
     js: 'dist',
     assets: 'dist/assets',
-    sass: 'dist/assets'
-  }
+    sass: 'dist/assets',
+  },
 }
 
 gulp.task('transpile', () => {
@@ -35,7 +35,7 @@ gulp.task('sass', () => {
 
 gulp.task('clean', () => {
   return gulp.src(paths.out.js, {
-    read: false
+    read: false,
   })
   .pipe(rimraf())
 })
