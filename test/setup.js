@@ -1,5 +1,5 @@
-import nock from 'nock';
+import nock from 'nock'
 
-nock.disableNetConnect();
+nock.disableNetConnect()
 // allow websockets
-nock.enableNetConnect(/127\.0\.0\.1:\d+/);
+nock.enableNetConnect(/127\.0\.0\.1:\d+/)
