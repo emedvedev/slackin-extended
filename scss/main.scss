@@ -1,22 +1,18 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   font-size: 10px;
+  background: white;
 
   &.large {
     font-size: 14px;
   }
 
   &.iframe {
-    margin: 0;
-    padding: 0;
     background: #FAFAFA;
-    overflow: hidden; // ff
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: #FAFAFA;
-      overflow: hidden; // ff
-    }
 
     .splash {
       box-sizing: border-box;
@@ -25,11 +21,6 @@ html {
       margin: 0;
     }
   }
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -45,7 +36,7 @@ body {
 .splash {
   width: 30rem;
   text-align: center;
-  font-family: 'Helvetica Neue', Helvetica, Arial;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 @media(max-width: 50rem) {
@@ -73,11 +64,16 @@ body {
   background-size: cover;
 
   &.slack {
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 5px;
+    border: 3px solid white;
     background-image: url(/assets/slack.svg);
   }
 
   &.org {
     margin-right: 7rem;
+    border-radius: .56em;
 
     &::after {
       position: absolute;
@@ -116,12 +112,12 @@ body {
       width: 1.5rem;
       height: 1.5rem;
       vertical-align: middle;
-      background: url(/assets/checkbox.svg);
+      background: white url(/assets/checkbox.svg);
       cursor: pointer;
+    }
 
-      &:checked {
-        background-position: right;
-      }
+    &:checked::after {
+      background-position: right;
     }
   }
 
@@ -240,11 +236,6 @@ html.iframe form {
   margin-top: 1rem;
 }
 
-input {
-  color: #9B9B9B;
-  border: .1rem solid #D6D6D6;
-}
-
 html.iframe {
   button, .form-item {
     height: 2.8rem;
@@ -252,6 +243,11 @@ html.iframe {
     padding: 0;
     font-size: 1.1rem;
   }
+}
+
+input {
+  color: #9B9B9B;
+  border: .1rem solid #D6D6D6;
 }
 
 input:focus {
@@ -298,6 +294,285 @@ footer {
       background-color: #9B9B9B;
     }
   }
+}
+
+// Scale down the reCAPTCHA window
+.iframe .g-recaptcha {
+  width: 304px;
+  transform: scale(0.76);
+  position: relative;
+  left: -36px;
+  top: -3px;
+}
+.iframe.large .g-recaptcha {
+  width: auto;
+  transform: scale(1.065);
+  position: relative;
+  left: 11px;
+  top: -4px;
+}
+#h-captcha {
+  display: none;
+}
+
+@mixin theme(
+  $color-background,
+  $iframe-background,
+  $color-text,
+  $color-plus-sign,
+  $color-footer,
+  $color-footer-link,
+  $color-signin,
+  $color-signin-link,
+  $color-coc,
+  $color-coc-link,
+  $color-button-text,
+  $color-button-background,
+  $color-button-success-text,
+  $color-button-success-background,
+  $color-button-error-text,
+  $color-button-error-background,
+  $color-button-pressed-text,
+  $color-button-pressed-background,
+  $color-button-disabled-text,
+  $color-button-disabled-background,
+  $color-users-active,
+  $color-users-total,
+  $color-input-text,
+  $color-input-border,
+  $color-input-focused-text,
+  $color-input-focused-border
+) {
+  // Main:
+  background: $color-background;
+  color: $color-text;
+  &.iframe {
+    background: $iframe-background;
+  }
+  // Plus sign between the logos:
+  .logo.org::after {
+    color: $color-plus-sign;
+  }
+  // Code of conduct:
+  .coc {
+    color: $color-coc;
+    a {
+      color: $color-coc-link;
+      &:hover {
+        background-color: $color-coc-link;
+        color: $color-background;
+      }
+    }
+  }
+  // Button:
+  button {
+    color: $color-button-text;
+    background-color: $color-button-background;
+    &.error {
+      color: $color-button-error-text;
+      background-color: $color-button-error-background;
+    }
+    &.success {
+      color: $color-button-success-text;
+      background-color: $color-button-success-background;
+    }
+    &:disabled {
+      color: $color-button-disabled-text;
+      background-color: $color-button-disabled-background;
+    }
+    &:not(.disabled):active {
+      color: $color-button-pressed-text;
+      background-color: $color-button-pressed-background;
+    }
+  }
+  // Input:
+  input {
+    color: $color-input-text;
+    border-color: $color-input-border;
+  }
+  input:focus {
+    color: $color-input-focused-text;
+    border-color: $color-input-focused-border;
+    outline: 0;
+  }
+  // Active users:
+  .active {
+    color: $color-users-active;
+  }
+  .total {
+    color: $color-users-total;
+  }
+  // Signin link:
+  p.signin {
+    color: $color-signin;
+    a {
+      color: $color-signin-link;
+      &:hover {
+        background-color: $color-signin-link;
+        color: $color-background;
+      }
+    }
+  }
+  // Footer:
+  footer {
+    color: $color-footer;
+    a {
+      color: $color-footer-link;
+      border-bottom-color: $color-footer-link;
+      &:hover {
+        color: $color-background;
+        background-color: $color-footer-link;
+      }
+    }
+  }
+}
+
+html.theme-default {
+
+  // While every color in the theme mixin is customizable,
+  // we can build a theme from just a few.
+
+  $foreground: #000000;
+
+  $background: #ffffff;
+  $background-iframe: #fafafa;
+
+  $button-text: #ffffff;
+  $button-text-disabled: #999999;
+
+  $accent: #e01563;
+  $success: #68c200;
+  $error: #f4001e;
+  $disabled: #cccccc;
+
+  @include theme(
+    // $color-background:
+    $background,
+    // $iframe-background:
+    $background-iframe,
+    // $color-text:
+    $foreground,
+    // $color-plus-sign:
+    lighten($foreground, 80),
+    // $color-footer:
+    lighten($foreground, 80),
+    // $color-footer-link:
+    lighten($foreground, 60),
+    // $color-signin
+    $foreground,
+    // $color-signin-link:
+    $accent,
+    // $color-coc:
+    lighten($foreground, 40),
+    // $color-coc-link:
+    lighten($foreground, 40),
+    // $color-button-text:
+    $button-text,
+    // $color-button-background:
+    $accent,
+    // $color-button-success-text:
+    $button-text,
+    // $color-button-success-background:
+    $success,
+    // $color-button-error-text:
+    $button-text,
+    // $color-button-error-background:
+    $error,
+    // $color-button-pressed-text:
+    $button-text,
+    // $color-button-pressed-background:
+    darken($accent, 15),
+    // $color-button-disabled-text:
+    $button-text-disabled,
+    // $color-button-disabled-background:
+    $disabled,
+    // $color-users-active:
+    $accent,
+    // $color-users-total:
+    $foreground,
+    // $color-input-text:
+    lighten($foreground, 60),
+    // $color-input-border:
+    lighten($foreground, 80),
+    // $color-input-focused-text:
+    lighten($foreground, 40),
+    // $color-input-focused-border:
+    lighten($foreground, 60)
+  );
+}
+
+html.theme-dark {
+
+  // An example of a dark theme, where
+  // the accents are darker, not lighter.
+
+  $foreground: #eeeeee;
+
+  $background: #25292c;
+  $background-iframe: #25292c;
+
+  $button-text: #eeeeee;
+  $button-text-disabled: #666;
+
+  $accent: darken(#e01563, 15);
+  $success: darken(#68c200, 15);
+  $error: darken(#f4001e, 15);
+  $disabled: darken(#cccccc, 15);
+
+  @include theme(
+    // $color-background:
+    $background,
+    // $iframe-background:
+    $background-iframe,
+    // $color-text:
+    $foreground,
+    // $color-plus-sign:
+    darken($foreground, 60),
+    // $color-footer:
+    darken($foreground, 60),
+    // $color-footer-link:
+    darken($foreground, 40),
+    // $color-signin:
+    darken($foreground, 20),
+    // $color-signin-link:
+    $accent,
+    // $color-coc:
+    darken($foreground, 20),
+    // $color-coc-link:
+    darken($foreground, 20),
+    // $color-button-text:
+    $button-text,
+    // $color-button-background:
+    $accent,
+    // $color-button-success-text:
+    $button-text,
+    // $color-button-success-background:
+    $success,
+    // $color-button-error-text:
+    $button-text,
+    // $color-button-error-background:
+    $error,
+    // $color-button-pressed-text:
+    $button-text,
+    // $color-button-pressed-background:
+    darken($accent, 10),
+    // $color-button-disabled-text:
+    $button-text-disabled,
+    // $color-button-disabled-background:
+    $disabled,
+    // $color-users-active:
+    $accent,
+    // $color-users-total:
+    $foreground,
+    // $color-input-text:
+    darken($foreground, 40),
+    // $color-input-border:
+    darken($foreground, 60),
+    // $color-input-focused-text:
+    darken($foreground, 20),
+    // $color-input-focused-border:
+    darken($foreground, 40)
+  );
 }
 
 // Overrides

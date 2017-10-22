@@ -11,26 +11,35 @@ var coc = form.elements['coc']
 var button = body.querySelector('button')
 
 // remove loading state
-button.className = ''
+button.classList.remove('loading')
 
 // capture submit
-body.addEventListener('submit', function (ev){
-  ev.preventDefault()
+function submitForm (ev){
+  ev && ev.preventDefault()
   button.disabled = true
-  button.className = ''
+  button.classList.remove('loading')
+  button.classList.remove('error')
+  button.classList.remove('success')
   button.innerHTML = 'Please Wait'
   var gcaptcha_response = form.elements['g-recaptcha-response']
-  invite(channel ? channel.value : null, coc && coc.checked ? 1 : 0, email.value, gcaptcha_response.value, function (err, msg){
+  var gcaptcha_token = gcaptcha_response ? gcaptcha_response.value : ''
+
+  if (!gcaptcha_token && document.getElementById('h-captcha')) {
+    return grecaptcha.execute();
+  }
+
+  invite(channel ? channel.value : null, coc && coc.checked ? 1 : 0, email.value, gcaptcha_token, function (err, msg){
     if (err) {
       button.removeAttribute('disabled')
-      button.className = 'error'
+      button.classList.add('error')
       button.innerHTML = err.message
     } else {
-      button.className = 'success'
+      button.classList.add('success')
       button.innerHTML = msg
     }
   })
-})
+};
+body.addEventListener('submit', submitForm);
 
 function invite (channel, coc, email, gcaptcha_response_value, fn){
   request

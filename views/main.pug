@@ -1,11 +1,77 @@
-html
+html(class=`theme-dark ${large ? 'large' : ''} ${iframe ? 'iframe' : ''}`)
   head
     title Join #{name} on Slack!
-    script(src='https://www.google.com/recaptcha/api.js')
     meta(name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no')
     link(rel='shortcut icon', href='https://slack.global.ssl.fastly.net/272a/img/icons/favicon-32.png')
     if css
       link(rel='stylesheet', href=css)
   body
-    include splash.pug
 
+    .splash
+
+      unless iframe
+        .logos
+          if logo
+            .logo.org(style=`background-image:url(${logo})`)
+          .logo.slack
+
+      if channels && channels.length === 1
+        p Join #[b= name] #[span ##{channels[0]}] on Slack.
+      else
+        p Join #[b= name] on Slack.
+
+      if active
+        p.status #[b.active= active] users online now of #[b.total= total] registered.
+      else
+        p.status #[b.total= total] users are registered so far.
+
+      form#invite
+
+        if channels
+          if channels.length > 1
+            select.form-item(name='channel')
+              each channel in channels
+                option(value=channel, text=channel)
+          else
+            input(type='hidden', name='channel', value=channels[0])
+
+        if iframe
+          input.form-item(type='email', name='email', placeholder='you@yourdomain.com')
+        else
+          input.form-item(type='email', name='email', placeholder='you@yourdomain.com' autofocus)
+
+        if recaptcha.sitekey
+          if recaptcha.invisible
+            div#h-captcha.g-recaptcha(
+              data-sitekey=recaptcha.sitekey,
+              data-callback='invisibleCallback',
+              data-size='invisible')
+          else
+            br
+            div.g-recaptcha(data-sitekey=recaptcha.sitekey)
+
+        if coc
+          .coc
+            label
+              input(type='checkbox', name='coc', value='1')
+              | I agree to the #[a(href=coc, target='_blank') Code of Conduct].
+
+        button.loading Get my Invite
+
+      p.signin or #[a(href=`https://${org}.slack.com`, target='_top') sign in].
+
+      unless iframe
+        footer powered by #[a(href='https://github.com/emedvedev/slackin-extended', target='_blank') slackin extended]
+
+      link(rel='stylesheet', href=`${path}assets/main.css`)
+      script
+        | data = {};
+        | data.path = !{JSON.stringify(path)};
+        if recaptcha.sitekey && recaptcha.invisible
+        | function invisibleCallback (token) {
+        |   return submitForm();
+        | }
+      script(src='https://cdn.socket.io/socket.io-1.4.4.js')
+      script(src=`${path}assets/superagent.js`)
+      script(src=`${path}assets/client.js`)
+      script(src='https://www.google.com/recaptcha/api.js')

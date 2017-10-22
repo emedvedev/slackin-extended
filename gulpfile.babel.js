@@ -1,7 +1,7 @@
-import gulp from 'gulp'
-import babel from 'gulp-babel'
-import rimraf from 'gulp-rimraf'
-import sass from 'gulp-sass'
+import gulp from 'gulp';
+import babel from 'gulp-babel';
+import rimraf from 'gulp-rimraf';
+import sass from 'gulp-sass';
 
 const paths = {
   in: {
@@ -14,30 +14,20 @@ const paths = {
     assets: 'dist/assets',
     sass: 'dist/assets',
   },
-}
+};
 
-gulp.task('transpile', () => {
-  return gulp.src(paths.in.js)
+gulp.task('transpile', () => gulp.src(paths.in.js)
   .pipe(babel())
-  .pipe(gulp.dest(paths.out.js))
-})
+  .pipe(gulp.dest(paths.out.js)));
 
-gulp.task('assets', () => {
-  return gulp.src(paths.in.assets)
-  .pipe(gulp.dest(paths.out.assets))
-})
+gulp.task('assets', () => gulp.src(paths.in.assets)
+  .pipe(gulp.dest(paths.out.assets)));
 
-gulp.task('sass', () => {
-  return gulp.src(paths.in.sass)
-  .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-  .pipe(gulp.dest(paths.out.assets))
-})
+gulp.task('sass', () => gulp.src(paths.in.sass)
+  .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+  .pipe(gulp.dest(paths.out.assets)));
 
-gulp.task('clean', () => {
-  return gulp.src(paths.out.js, {
-    read: false,
-  })
-  .pipe(rimraf())
-})
+gulp.task('clean', () => gulp.src(paths.out.js, { read: false })
+  .pipe(rimraf()));
 
-gulp.task('default', ['transpile', 'assets', 'sass'])
+gulp.task('default', ['transpile', 'assets', 'sass']);

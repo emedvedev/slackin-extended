@@ -10,7 +10,7 @@ span(class=`slack-button ${large ? ' slack-btn-large' : ''}`)
       | -
 
   style
-    | !{css}
+    | !{extraCss}
     | .slack-ico { background-image: url(data:image/svg+xml;base64,#{logo}); }
   script
     | data = {};
@@ -18,3 +18,5 @@ span(class=`slack-button ${large ? ' slack-btn-large' : ''}`)
     | data.total = #{total != null ? total : 'null'};
     | data.active = #{active != null ? active : 'null'};
     | !{js}
+  if css
+    link(rel='stylesheet', href=css)
