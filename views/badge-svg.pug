@@ -1,20 +1,19 @@
 -
   const width = str => 7 * str.length;
-  const title = 'slack'
-  const color = '#E01563'
-  const pad = 8 // left / right padding
-  const sep = 4 // middle separation
-  let value = active ? `${active}/${total}` : ('' + total || '–')
-  let lw = pad + width(title) + sep // left side width
-  let rw = sep + width(value) + pad // right side width
-  let tw = lw + rw // total width
+  const title = 'slack';
+  const pad = 8; // left / right padding
+  const sep = 4; // middle separation
+  let value = active ? `${active}/${total}` : ('' + total || '–');
+  let lw = pad + width(title) + sep; // left side width
+  let rw = sep + width(value) + pad; // right side width
+  let tw = lw + rw; // total width
 
-svg(xmlns='http://www.w3.org/2000/svg', width='tw', height='20')
+svg(xmlns='http://www.w3.org/2000/svg', width=tw, height='20')
 
   rect(rx='3', height='20', width=tw, fill='#555')
-  rect(rx='3', height='20', width=rw, fill=color, x=lw)
+  rect(rx='3', height='20', width=rw, fill=bg, x=lw)
 
-  path(d=`M${lw} 0h${sep}v20h-${sep}z`, fill=color)
+  path(d=`M${lw} 0h${sep}v20h-${sep}z`, fill=bg)
 
   g(text-anchor='middle', font-family='Verdana', font-size='11')
 
@@ -22,4 +21,4 @@ svg(xmlns='http://www.w3.org/2000/svg', width='tw', height='20')
     text(fill='#ffffff', x=Math.round(lw / 2), y='14')= title
 
     text(fill='#010101', x=(lw + Math.round(lw / 2)), y='15', fill-opacity='.3')= value
-    text(fill='#ffffff', x=(lw + Math.round(lw / 2)), y='14')= value
+    text(fill=fg, x=(lw + Math.round(lw / 2)), y='14')= value

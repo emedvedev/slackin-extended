@@ -39,6 +39,14 @@ args
     ['I', 'recaptcha-invisible'], 'Use invisible reCAPTCHA',
     process.env.RECAPTCHA_INVISIBLE && process.env.RECAPTCHA_INVISIBLE !== '',
   )
+  .option(
+    ['T', 'theme'], 'Color scheme to use, "light" (default) or "dark',
+    process.env.SLACKIN_THEME,
+  )
+  .option(
+    ['A', 'accent'], 'Accent color to use instead of a theme default',
+    process.env.SLACKIN_ACCENT,
+  )
   .option(['C', 'coc'], 'Full URL to a CoC that needs to be agreed to')
   .option(['S', 'css'], 'Full URL to a custom CSS file to use on the main page')
   .option(['?', 'help'], 'Show the usage information');

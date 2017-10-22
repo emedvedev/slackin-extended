@@ -1,10 +1,19 @@
-html(class=`theme-dark ${large ? 'large' : ''} ${iframe ? 'iframe' : ''}`)
+html(class=`${large ? 'large' : ''} ${iframe ? 'iframe' : ''} theme-${theme.name}`)
   head
     title Join #{name} on Slack!
     meta(name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no')
     link(rel='shortcut icon', href='https://slack.global.ssl.fastly.net/272a/img/icons/favicon-32.png')
+    link(rel='stylesheet', href=`${path}assets/main.css`)
     if css
       link(rel='stylesheet', href=css)
+    if theme.accent
+      style
+        | html .splash .active { color: #{theme.accent}; }
+        | html .splash p.signin a { color: #{theme.accent}; }
+        | html .splash p.signin a:hover { background-color: #{theme.accent}; }
+        | html .splash button { background-color: #{theme.accent}; }
+        | html .splash button:not(.disabled):active { background-color: #{theme.accentDark}; }
+
   body
 
     .splash
@@ -48,7 +57,7 @@ html(class=`theme-dark ${large ? 'large' : ''} ${iframe ? 'iframe' : ''}`)
               data-size='invisible')
           else
             br
-            div.g-recaptcha(data-sitekey=recaptcha.sitekey)
+            div.g-recaptcha(data-sitekey=recaptcha.sitekey, data-theme=theme.recaptcha)
 
         if coc
           .coc
@@ -63,7 +72,6 @@ html(class=`theme-dark ${large ? 'large' : ''} ${iframe ? 'iframe' : ''}`)
       unless iframe
         footer powered by #[a(href='https://github.com/emedvedev/slackin-extended', target='_blank') slackin extended]
 
-      link(rel='stylesheet', href=`${path}assets/main.css`)
       script
         | data = {};
         | data.path = !{JSON.stringify(path)};

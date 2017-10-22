@@ -64,10 +64,6 @@ body {
   background-size: cover;
 
   &.slack {
-    box-sizing: border-box;
-    background-color: white;
-    border-radius: 5px;
-    border: 3px solid white;
     background-image: url(/assets/slack.svg);
   }
 
@@ -427,7 +423,7 @@ footer {
   }
 }
 
-html.theme-default {
+html.theme-light {
 
   // While every color in the theme mixin is customizable,
   // we can build a theme from just a few.
@@ -518,6 +514,16 @@ html.theme-dark {
   $success: darken(#68c200, 15);
   $error: darken(#f4001e, 15);
   $disabled: darken(#cccccc, 15);
+
+  // The Slack logo has to have white background,
+  // so we'll add it since the main background
+  // isn't white.
+  .logos.slack {
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 5px;
+    border: 3px solid white;
+  }
 
   @include theme(
     // $color-background:

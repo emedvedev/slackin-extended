@@ -20,9 +20,9 @@
     "args": "^3.0.7",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
-    "babel-register": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "debug": "^3.1.0",
@@ -35,7 +35,8 @@
     "hostenv": "^1.0.5",
     "pug": "^2.0.0-rc.4",
     "socket.io": "^2.0.3",
-    "superagent": "^3.7.0"
+    "superagent": "^3.7.0",
+    "tinycolor2": "^1.4.1"
   },
   "license": "MIT",
   "devDependencies": {
