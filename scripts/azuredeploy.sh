@@ -81,7 +81,7 @@ selectNodeVersion () {
       NODE_EXE=`cat "$DEPLOYMENT_TEMP/__nodeVersion.tmp"`
       exitWithMessageOnError "getting node version failed"
     fi
-    
+
     if [[ -e "$DEPLOYMENT_TEMP/.tmp" ]]; then
       NPM_JS_PATH=`cat "$DEPLOYMENT_TEMP/__npmVersion.tmp"`
       exitWithMessageOnError "getting npm version failed"
@@ -114,12 +114,12 @@ echo Deploying Slackin: $SLACKIN_RELEASE
 
 if [[ "$SLACKIN_RELEASE" == "stable" ]]; then
   # Stable
-  echo Installing from npm 
-  
+  echo Installing from npm
+
   cd "$DEPLOYMENT_TARGET"
-  
+
   # 1. Install latest release of slackin from npm
-  eval $NPM_CMD install slackin
+  eval $NPM_CMD install slackin-extended
 
   # 2. Copy to root folder
   cp -rv node_modules/slackin/* .
@@ -130,12 +130,12 @@ else
   # Latest (from git repo)
   echo Installing from git repo
 
-  # 1. KuduSync 
+  # 1. KuduSync
   if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
     "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
     exitWithMessageOnError "Kudu Sync failed"
   fi
-  
+
   # 2. Install npm packages
   if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
     echo npm install

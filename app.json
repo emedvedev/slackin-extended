@@ -1,8 +1,8 @@
 {
-  "name": "Slackin",
+  "name": "slackin-extended",
   "description": "Let people invite themselves to your Slack",
   "logo": "https://i.imgur.com/odDO1Fx.png",
-  "repository": "https://github.com/rauchg/slackin",
+  "repository": "https://github.com/emedvedev/slackin-extended",
   "keywords": ["node", "slack"],
   "env": {
     "SLACK_SUBDOMAIN": {
@@ -13,21 +13,41 @@
       "description": "A Slack API token (find it on https://api.slack.com/web)",
       "required": true
     },
-    "GOOGLE_CAPTCHA_SECRET": {
+    "RECAPTCHA_SECRET": {
       "description": "Google captcha secret key",
-      "required": true
+      "required": false
     },
-    "GOOGLE_CAPTCHA_SITEKEY": {
+    "RECAPTCHA_SITEKEY": {
       "description": "Google captcha site key",
-      "required": true
+      "required": false
     },
-    "SLACK_COC": {
+    "RECAPTCHA_INVISIBLE": {
+      "description": "Use invisible reCAPTCHA instead of reCAPTCHA v2",
+      "required": false
+    },
+    "SLACKIN_COC": {
       "description": "A URL to a Code of Conduct people must agree on before joining.",
       "required": false
     },
-    "SLACK_CHANNELS": {
+    "SLACKIN_CHANNELS": {
       "description": "Comma-separated list of single guest channels to invite them to (leave blank for a normal, all-channel invite). In order to make this work, you have to have a paid account. You'll only be able to invite as many people as your number of paying members times 5.",
       "required": false
-    }
+    },
+    "SLACKIN_INTERVAL": {
+      "description": "How frequently (ms) to poll Slack",
+      "required": false
+    },
+    "SLACKIN_ANALYTICS": {
+      "description": "Google Analytics ID",
+      "required": false
+    },
+    "SLACKIN_THEME": {
+      "description": "Color scheme to use, \"light\" (default) or \"dark\"",
+      "required": false
+    },
+    "SLACKIN_ACCENT": {
+      "description": "Accent color to use instead of a theme default",
+      "required": false
+    },
   }
 }

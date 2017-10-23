@@ -14,15 +14,15 @@ Check out the [Demo](https://slackin.now.sh/) or read more about the [motivation
 Set up [Now](https://zeit.co/now) on your device and run this command. [Now](https://zeit.co/now) will automatically ask you for the required information and then spin up a deployment instantly. That easy!
 
 ```bash
-now rauchg/slackin
+now emedvedev/slackin-extended
 ```
 
 Other platforms:
 
-- [Heroku](https://heroku.com/deploy?template=https://github.com/rauchg/slackin/tree/master)
+- [Heroku](https://heroku.com/deploy?template=https://github.com/emedvedev/slackin-extended/tree/master)
 - [Azure](https://azuredeploy.net/)
 - [OpenShift](https://github.com/rauchg/slackin/wiki/OpenShift)
-- [IBM Bluemix](https://bluemix.net/deploy?repository=https://github.com/rauchg/slackin)
+- [IBM Bluemix](https://bluemix.net/deploy?repository=https://github.com/emedvedev/slackin-extended)
 
 ### Tips
 
@@ -59,7 +59,7 @@ sitekey](https://www.google.com/recaptcha/admin) for Google reCAPTCHA.
 Loading `slackin` will return a `Function` that creates a `HTTP.Server` instance:
 
 ```js
-const slackin = require('slackin')
+const slackin = require('slackin-extended')
 
 slackin.default({
   token: 'yourtoken',                             // required
@@ -78,8 +78,8 @@ All the metadata for your organization can be fetched via a JSON HTTP request to
 ## Caught a Bug?
 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device
-2. Uninstall slackin if it's already installed: `npm uninstall -g slack`
+2. Uninstall slackin if it's already installed: `npm uninstall -g slackin-extended`
 3. Link it to the global module directory: `npm link`
 4. Transpile the source code and watch for changes: `npm start`
 
-Yey! Now can use the `slack` command everywhere.
+Yey! Now can use the `slackin` command everywhere.
