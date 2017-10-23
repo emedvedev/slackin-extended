@@ -28,6 +28,10 @@ args
   .option(['s', 'silent'], 'Do not print out warns or errors')
   .option(['x', 'cors'], 'Enable CORS for all routes')
   .option(
+    ['a', 'analytics'], 'Google Analytics ID',
+    process.env.SLACKIN_ANALYTICS,
+  )
+  .option(
     ['R', 'recaptcha-secret'], 'reCAPTCHA secret',
     process.env.RECAPTCHA_SECRET,
   )
@@ -40,7 +44,7 @@ args
     process.env.RECAPTCHA_INVISIBLE && process.env.RECAPTCHA_INVISIBLE !== '',
   )
   .option(
-    ['T', 'theme'], 'Color scheme to use, "light" (default) or "dark',
+    ['T', 'theme'], 'Color scheme to use, "light" (default) or "dark"',
     process.env.SLACKIN_THEME,
   )
   .option(
