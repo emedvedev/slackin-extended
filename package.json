@@ -55,14 +55,8 @@
     "slackin": "./bin/slackin"
   },
   "eslintConfig": {
-    "extends": "default",
-    "parser": "babel-eslint",
-    "rules": {
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ]
-    }
+    "extends": "airbnb-base",
+    "parser": "babel-eslint"
   },
   "scripts": {
     "test": "mocha && eslint lib/**",
