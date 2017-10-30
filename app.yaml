@@ -1,9 +1,9 @@
 env: flex
 runtime: custom
 env_variables:
-  FQDN: "your.slackin.subdomain.com"
+  SLACKIN_HTTPS_REDIRECT: "your.slackin.subdomain.com"
   SLACKIN_PORT: "8080"
-  SLACK_INTERVAL: "25000"
+  SLACKIN_INTERVAL: "25000"
   SLACK_SUBDOMAIN: "your-slack-workspace"
   SLACK_API_TOKEN: "your-slack-api-token"
   GOOGLE_CAPTCHA_SECRET: "your-recaptcha-secret"
