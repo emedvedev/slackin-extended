@@ -113,7 +113,9 @@ Yay! Now can use the `slackin` command everywhere.
 
 ### Extending templates and themes
 
-[...]
+If changing accent colors and switching between light/dark themes isn't enough for you, all templates are stored inside `views/` and can be easily modified. Stylesheets are stored in `scss/`, and both themes have a documented example of colors, variables and additional styles necessary to create your own.
+
+If you end up creating another theme, you're more than welcome to submit a PR!
 
 ### API
 
