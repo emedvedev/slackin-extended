@@ -19,14 +19,14 @@
   * modify the Docker image to be compatible with Google App Engine
   * document every parameter and environment variable
   * document extending templates and themes
-  * respect the `retry-after` Slack API header ([slackin/#303](https://github.com/rauchg/slackin/pull/303) by [@szkl])
-  * fix a link to Slack API tokens in `app.json` ([slackin/#313](https://github.com/rauchg/slackin/pull/313) by [@Meandmybadself])
-  * fix README mention of `?large` ([slackin/#269](https://github.com/rauchg/slackin/pull/269) by [@laughinghan])
-  * fix reCAPTCHA rendering inside iframe ([slackin/#332](https://github.com/rauchg/slackin/pull/332) by [@toolmantim])
-  * return the self-hosting instructions to README ([slackin/#336](https://github.com/rauchg/slackin/pull/336) by [@Daniel15])
-  * add `dist` to `.gitignore` ([slackin/#343](https://github.com/rauchg/slackin/pull/343) by [@Ilshidur])
-  * commit `package-lock.json` ([slackin/#345](https://github.com/rauchg/slackin/pull/345) by [@Ilshidur])
-  * use hash URLs to link to a pre-selected channel ([slackin/#111](https://github.com/rauchg/slackin/pull/345) by [@mattgorecki])
+  * respect the `retry-after` Slack API header ([slackin/#303](https://github.com/rauchg/slackin/pull/303) by [@szkl](https://github.com/szkl))
+  * fix a link to Slack API tokens in `app.json` ([slackin/#313](https://github.com/rauchg/slackin/pull/313) by [@Meandmybadself](https://github.com/Meandmybadself))
+  * fix README mention of `?large` ([slackin/#269](https://github.com/rauchg/slackin/pull/269) by [@laughinghan](https://github.com/laughinghan))
+  * fix reCAPTCHA rendering inside iframe ([slackin/#332](https://github.com/rauchg/slackin/pull/332) by [@toolmantim](https://github.com/toolmantim))
+  * return the self-hosting instructions to README ([slackin/#336](https://github.com/rauchg/slackin/pull/336) by [@Daniel15](https://github.com/Daniel15))
+  * add `dist` to `.gitignore` ([slackin/#343](https://github.com/rauchg/slackin/pull/343) by [@Ilshidur](https://github.com/Ilshidur))
+  * commit `package-lock.json` ([slackin/#345](https://github.com/rauchg/slackin/pull/345) by [@Ilshidur](https://github.com/Ilshidur))
+  * use hash URLs to link to a pre-selected channel ([slackin/#111](https://github.com/rauchg/slackin/pull/345) by [@mattgorecki](https://github.com/mattgorecki))
 
 0.13.0 / 2016-07-20
 ===================
