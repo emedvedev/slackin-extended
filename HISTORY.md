@@ -1,3 +1,32 @@
+1.0.0 / 2017-10-27
+==================
+
+  * **`slackin-extended` forking point**
+  * change the templating engine to Pug
+  * change the CSS engine to SCSS
+  * change the default Slack API polling interval to 60s
+  * update the required `node` version
+  * update all dependencies
+  * make debug logging more explicit with the `debug` module
+  * make the executable fully configurable through environment variables
+  * make reCAPTCHA optional
+  * add Invisible reCAPTCHA support
+  * add Google Analytics support
+  * add theme and accent color support for the sign-up page
+  * add color customization for the SVG badge
+  * add wildcard support to e-mail restrictions
+  * add HTTP -> HTTPS redirect and the `trust proxy` setting
+  * modify the Docker image to be compatible with Google App Engine
+  * document every parameter and environment variable
+  * document extending templates and themes
+  * respect the `retry-after` Slack API header ([slackin/#303](https://github.com/rauchg/slackin/pull/303) by [@szkl])
+  * fix a link to Slack API tokens in `app.json` ([slackin/#313](https://github.com/rauchg/slackin/pull/313) by [@Meandmybadself])
+  * fix README mention of `?large` ([slackin/#269](https://github.com/rauchg/slackin/pull/269) by [@laughinghan])
+  * fix reCAPTCHA rendering inside iframe ([slackin/#332](https://github.com/rauchg/slackin/pull/332) by [@toolmantim])
+  * return the self-hosting instructions to README ([slackin/#336](https://github.com/rauchg/slackin/pull/336) by [@Daniel15])
+  * add `dist` to `.gitignore` ([slackin/#343](https://github.com/rauchg/slackin/pull/343) by [@Ilshidur])
+  * commit `package-lock.json` ([slackin/#345](https://github.com/rauchg/slackin/pull/345) by [@Ilshidur])
+  * use hash URLs to link to a pre-selected channel ([slackin/#111](https://github.com/rauchg/slackin/pull/345) by [@mattgorecki])
 
 0.13.0 / 2016-07-20
 ===================
