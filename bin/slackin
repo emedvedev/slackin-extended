@@ -9,24 +9,37 @@ const mainLog = dbg('slackin:main');
 
 args
   .option(
-    ['p', 'port'], 'Port to listen on [$SLACKIN_PORT or 3000]',
+    ['p', 'port'], 'Port to listen on',
     process.env.SLACKIN_PORT || hostenv.PORT || 3000,
   )
   .option(
-    ['h', 'hostname'], 'Hostname to listen on [$SLACKIN_HOSTNAME or 0.0.0.0]',
+    ['h', 'hostname'], 'Hostname to listen on',
     process.env.SLACKIN_HOSTNAME || hostenv.HOSTNAME || '0.0.0.0',
   )
   .option(
-    ['c', 'channels'], 'One or more comma-separated channel names to allow single-channel guests [$SLACKIN_CHANNELS]',
+    ['c', 'channels'], 'One or more comma-separated channel names to allow single-channel guests',
     process.env.SLACKIN_CHANNELS,
   )
   .option(
-    ['i', 'interval'], 'How frequently (ms) to poll Slack [$SLACKIN_INTERVAL or 60000]',
+    ['e', 'emails'], 'Restrict sign-up to a list of emails (comma-separated; wildcards are supported)',
+    process.env.SLACKIN_EMAILS,
+  )
+  .option(
+    ['i', 'interval'], 'How frequently (ms) to poll Slack',
     process.env.SLACKIN_INTERVAL || 60000,
   )
-  .option(['P', 'path'], 'Path to serve slackin under', '/')
-  .option(['s', 'silent'], 'Do not print out warns or errors')
-  .option(['x', 'cors'], 'Enable CORS for all routes')
+  .option(
+    ['P', 'path'], 'Path to serve slackin under',
+    process.env.SLACKIN_PATH || '/',
+  )
+  .option(
+    ['s', 'silent'], 'Do not print out warnings or errors',
+    !!process.env.SLACKIN_SILENT,
+  )
+  .option(
+    ['x', 'cors'], 'Enable CORS for all routes',
+    !!process.env.SLACKIN_CORS,
+  )
   .option(
     ['a', 'analytics'], 'Google Analytics ID',
     process.env.SLACKIN_ANALYTICS,
@@ -41,7 +54,7 @@ args
   )
   .option(
     ['I', 'recaptcha-invisible'], 'Use invisible reCAPTCHA',
-    process.env.RECAPTCHA_INVISIBLE && process.env.RECAPTCHA_INVISIBLE !== '',
+    !!process.env.RECAPTCHA_INVISIBLE,
   )
   .option(
     ['T', 'theme'], 'Color scheme to use, "light" (default) or "dark"',
@@ -51,8 +64,14 @@ args
     ['A', 'accent'], 'Accent color to use instead of a theme default',
     process.env.SLACKIN_ACCENT,
   )
-  .option(['C', 'coc'], 'Full URL to a CoC that needs to be agreed to')
-  .option(['S', 'css'], 'Full URL to a custom CSS file to use on the main page')
+  .option(
+    ['C', 'coc'], 'Full URL to a CoC that needs to be agreed to',
+    process.env.SLACKIN_COC,
+  )
+  .option(
+    ['S', 'css'], 'Full URL to a custom CSS file to use on the main page',
+    process.env.SLACKIN_CSS,
+  )
   .option(['?', 'help'], 'Show the usage information');
 
 const flags = args.parse(process.argv, {
@@ -60,28 +79,30 @@ const flags = args.parse(process.argv, {
   help: false,
 });
 
+// Required arguments
 const org = args.sub[0] || process.env.SLACK_SUBDOMAIN;
 const token = args.sub[1] || process.env.SLACK_API_TOKEN;
 
-if (flags.help) {
-  args.showHelp();
-}
-
-if (!org || !token) {
+if (flags.help || !org || !token) {
   args.showHelp();
 } else {
   flags.org = org;
   flags.token = token;
 }
 
+// Group the reCAPTCHA settings
 flags.recaptcha = {
   secret: flags.recaptchaSecret,
   sitekey: flags.recaptchaSitekey,
   invisible: !!flags.recaptchaInvisible,
 };
 
-const { port, hostname } = flags;
+// Advanced parameters (env-only)
+flags.proxy = !!process.env.SLACKIN_PROXY;
+flags.redirectFQDN = process.env.SLACKIN_HTTPS_REDIRECT;
+flags.letsencrypt = process.env.SLACKIN_LETSENCRYPT;
 
+const { port, hostname } = flags;
 slackin(flags).listen(port, hostname, (err) => {
   if (err) throw err;
   if (!flags.silent) mainLog.enabled = true;

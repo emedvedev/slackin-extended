@@ -113,3 +113,9 @@ window.addEventListener('message', function onmsg (e){
     window.removeEventListener('message', onmsg)
   }
 })
+
+body.onload = function(){
+  if(window.location.hash) {
+    body.querySelector('select[name=channel]').value=window.location.hash.slice(1);
+  }
+};
