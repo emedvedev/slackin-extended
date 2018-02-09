@@ -1,6 +1,6 @@
 {
   "name": "slackin-extended",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Public Slack organizations made easy",
   "repository": "emedvedev/slackin-extended",
   "main": "dist/index",
@@ -69,7 +69,7 @@
   },
   "now": {
     "name": "slackin",
-    "type": "docker",
+    "type": "npm",
     "env": [
       "SLACK_API_TOKEN",
       "SLACK_SUBDOMAIN"

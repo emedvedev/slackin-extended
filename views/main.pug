@@ -11,7 +11,7 @@ html(class=`${large ? 'large' : ''} ${iframe ? 'iframe' : ''} theme-${theme.name
       | gtag('config', '#{analytics}');
 
     link(rel='shortcut icon', href='https://slack.global.ssl.fastly.net/272a/img/icons/favicon-32.png')
-    link(rel='stylesheet', href=`${path}assets/main.css`)
+    link(rel='stylesheet', href=`${path}/assets/main.css`)
     if css
       link(rel='stylesheet', href=css)
     if theme.accent
@@ -88,6 +88,6 @@ html(class=`${large ? 'large' : ''} ${iframe ? 'iframe' : ''} theme-${theme.name
         |   return submitForm();
         | }
       script(src='https://cdn.socket.io/socket.io-1.4.4.js')
-      script(src=`${path}assets/superagent.js`)
-      script(src=`${path}assets/client.js`)
+      script(src=`${path}/assets/superagent.js`)
+      script(src=`${path}/assets/client.js`)
       script(src='https://www.google.com/recaptcha/api.js')
