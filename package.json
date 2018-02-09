@@ -68,14 +68,8 @@
     "heroku-postbuild": "gulp"
   },
   "now": {
-    "type": "npm",
-    "files": [
-      "bin",
-      "lib",
-      "dist",
-      "views",
-      "gulpfile.babel.js"
-    ],
+    "name": "slackin",
+    "type": "docker",
     "env": [
       "SLACK_API_TOKEN",
       "SLACK_SUBDOMAIN"
