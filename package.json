@@ -70,6 +70,13 @@
   "now": {
     "name": "slackin",
     "type": "npm",
+    "files": [
+      "bin",
+      "lib",
+      "dist",
+      "views",
+      "gulpfile.babel.js"
+    ],
     "env": [
       "SLACK_API_TOKEN",
       "SLACK_SUBDOMAIN"
