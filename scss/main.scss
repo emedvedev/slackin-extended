@@ -64,7 +64,7 @@ body {
   background-size: cover;
 
   &.slack {
-    background-image: url(assets/slack.svg);
+    background-image: url(slack.svg);
   }
 
   &.org {
@@ -108,7 +108,7 @@ body {
       width: 1.5rem;
       height: 1.5rem;
       vertical-align: middle;
-      background: white url(assets/checkbox.svg);
+      background: white url(checkbox.svg);
       cursor: pointer;
     }
 
