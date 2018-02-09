@@ -146,6 +146,7 @@ slackin.default({
   redirectFQDN: 'slack.myorg.com', // redirect requests with x-forwarded-proto === 'http' to this domain
   letsencrypt: 'LETSENCRYPT-CHALLENGE', // Let's Encrypt challenge
   silent: false, // suppress warnings
+  server: http.Server(), // optional, allows passing in an existing http server object
 }).listen(3000)
 ```
 
