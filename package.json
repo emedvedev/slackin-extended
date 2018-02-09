@@ -75,6 +75,7 @@
       "lib",
       "dist",
       "views",
+      "assets",
       "gulpfile.babel.js"
     ],
     "env": [
