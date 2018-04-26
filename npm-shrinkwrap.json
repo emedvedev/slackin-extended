@@ -3919,7 +3919,7 @@
     "hoek": {
       "version": "2.16.3",
       "resolved": "https://registry.npmjs.org/hoek/-/hoek-5.0.3.tgz",
-      "integrity": "sha1-ILt0A9POo5jpHcRxCo/xuCdKJe0=",
+      "integrity": "sha1-tx1A2UPQqV2gGVa1R/g8SltKNKw=",
       "dev": true
     },
     "home-or-tmp": {
