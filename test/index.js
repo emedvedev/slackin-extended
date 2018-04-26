@@ -77,7 +77,7 @@ describe('slackin', () => {
 
   describe('GET /.well-known/acme-challenge/:id', () => {
     beforeEach(() => {
-      process.env.LETSENCRYPT_CHALLENGE = 'letsencrypt-challenge'
+      process.env.SLACKIN_LETSENCRYPT = 'letsencrypt-challenge'
 
       nock('https://myorg.slack.com')
         .get('/api/users.list')
@@ -103,12 +103,12 @@ describe('slackin', () => {
         })
     })
 
-    it('returns the contents of the environment variable LETSENCRYPT_CHALLENGE', (done) => {
+    it('returns the contents of the letsencrypt token', (done) => {
       let opts = {
         token: 'mytoken',
-        org: 'myorg'
+        org: 'myorg',
+        letsencrypt: 'letsencrypt-challenge',
       }
-
       let app = slackin(opts)
 
       request(app)
