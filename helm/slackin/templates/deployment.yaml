@@ -1,0 +1,82 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ include "slackin.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "slackin.name" . }}
+    helm.sh/chart: {{ include "slackin.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "slackin.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "slackin.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+          env:
+          - name: SLACKIN_PORT
+            value: "{{ .Values.slackinPort }}"
+          - name: SLACKIN_COC
+            value: {{ .Values.slackinCoc }}
+          - name: SLACKIN_CHANNELS
+            value: {{ .Values.slackinChannels }}
+          - name: SLACKIN_HOSTNAME
+            value: {{ .Values.slackinHostname }}
+          - name: SLACKIN_CSS
+            value: {{ .Values.slackinCSS }}
+          - name: SLACKIN_THEME
+            value: {{ .Values.slackinTheme }}
+          - name: SLACK_SUBDOMAIN
+            value: {{ .Values.slackSubdomain }}
+          - name: SLACK_API_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "slackin.fullname" . }}
+                key: slackApiToken
+          - name: RECAPTCHA_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "slackin.fullname" . }}
+                key: googleCaptchaSecret
+          - name: RECAPTCHA_SITEKEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "slackin.fullname" . }}
+                key: googleCaptchaSiteKey
+          ports:
+            - name: http
+              containerPort: {{ .Values.slackinPort }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
