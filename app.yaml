@@ -1,10 +1,10 @@
 env: flex
 runtime: custom
 env_variables:
-  SLACKIN_HTTPS_REDIRECT: "your.slackin.subdomain.com"
-  SLACKIN_PORT: "8080"
+  SLACKIN_HTTPS_REDIRECT: "slack.natsio.com"
+  SLACKIN_PORT: "3000"
   SLACKIN_INTERVAL: "25000"
-  SLACK_SUBDOMAIN: "your-slack-workspace"
-  SLACK_API_TOKEN: "your-slack-api-token"
+  SLACK_SUBDOMAIN: "natsio"
+  SLACK_API_TOKEN: "xoxp-6322782838-685630974689-694142281654-2a387c81c3f607ec737016a45f1069b7"
   GOOGLE_CAPTCHA_SECRET: "your-recaptcha-secret"
   GOOGLE_CAPTCHA_SITEKEY: "your-recaptcha-sitekey"
