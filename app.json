@@ -48,6 +48,6 @@
     "SLACKIN_ACCENT": {
       "description": "Accent color to use instead of a theme default",
       "required": false
-    },
+    }
   }
 }
