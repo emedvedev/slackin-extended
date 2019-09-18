@@ -30,4 +30,4 @@ gulp.task('sass', () => gulp.src(paths.in.sass)
 gulp.task('clean', () => gulp.src(paths.out.js, { read: false })
   .pipe(rimraf()));
 
-gulp.task('default', ['transpile', 'assets', 'sass']);
+gulp.task('default', gulp.series('transpile', 'assets', 'sass'));
