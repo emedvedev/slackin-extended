@@ -1,6 +1,6 @@
 {
   "name": "slackin-extended",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "Public Slack organizations made easy",
   "repository": "emedvedev/slackin-extended",
   "main": "dist/index",
