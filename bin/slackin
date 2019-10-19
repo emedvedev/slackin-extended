@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 const args = require('args');
-const slackin = require('./../dist').default;
 const hostenv = require('hostenv');
 const dbg = require('debug');
+const slackin = require('./../dist').default;
 
 const mainLog = dbg('slackin:main');
 
