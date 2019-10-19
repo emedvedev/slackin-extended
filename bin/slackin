@@ -3,7 +3,7 @@
 const args = require('args');
 const hostenv = require('hostenv');
 const dbg = require('debug');
-const slackin = require('./../dist').default;
+const slackin = require('../lib');
 
 const mainLog = dbg('slackin:main');
 

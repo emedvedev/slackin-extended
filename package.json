@@ -3,20 +3,17 @@
   "version": "1.1.11",
   "description": "Public Slack organizations made easy",
   "repository": "emedvedev/slackin-extended",
-  "main": "dist/index",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "bin": {
+    "slackin": "./bin/slackin"
+  },
   "files": [
-    "dist",
+    "assets",
     "bin",
+    "lib",
     "views"
   ],
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-object-rest-spread"
-    ]
-  },
   "dependencies": {
     "args": "^5.0.1",
     "body-parser": "^1.19.0",
@@ -29,22 +26,13 @@
     "pug": "^2.0.4",
     "socket.io": "^2.3.0",
     "superagent": "^3.8.3",
-    "tinycolor2": "^1.4.1"
+    "tinycolor2": "^1.4.1",
+    "node-sass": "^4.12.0"
   },
-  "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/register": "^7.6.2",
-    "babel-eslint": "^10.0.3",
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-rimraf": "^1.0.0",
-    "gulp-sass": "^4.0.2",
     "mocha": "^6.2.2",
     "nock": "^10.0.6",
     "supertest": "^4.0.2"
@@ -52,22 +40,17 @@
   "engines": {
     "node": "8.x"
   },
-  "bin": {
-    "slackin": "./bin/slackin"
+  "scripts": {
+    "lint": "eslint bin/slackin lib test",
+    "mocha": "mocha --require ./test/setup --exit",
+    "test": "npm run build && npm run lint && npm run mocha",
+    "build": "node-sass --output-style compressed --precision 6 scss/ -o assets/",
+    "start": "node ./bin/slackin",
+    "prebublish": "npm run build"
   },
   "eslintConfig": {
     "root": true,
-    "extends": "airbnb-base",
-    "parser": "babel-eslint"
-  },
-  "scripts": {
-    "lint": "eslint bin/slackin lib test",
-    "mocha": "mocha --require @babel/register --require ./test/setup --exit",
-    "test": "npm run lint && npm run mocha",
-    "build": "gulp",
-    "start": "node ./bin/slackin",
-    "heroku-prebuild": "npm install --only=dev",
-    "heroku-postbuild": "gulp"
+    "extends": "airbnb-base"
   },
   "now": {
     "name": "slackin",
@@ -75,7 +58,6 @@
     "files": [
       "bin",
       "lib",
-      "dist",
       "views",
       "assets",
       "scss",

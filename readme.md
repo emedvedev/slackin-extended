@@ -109,7 +109,7 @@ Workaround: sign up for a free org, and set up Slackin to point to it
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device
 2. Uninstall slackin if it's already installed: `npm uninstall -g slackin-extended`
 3. Link it to the global module directory: `npm link`
-4. Transpile the source code and watch for changes: `npm start`
+4. Run it locally: `npm start`
 
 Yay! Now can use the `slackin` command everywhere.
 
@@ -126,7 +126,7 @@ Loading `slackin` will return a `Function` that creates a `HTTP.Server` instance
 ```js
 const slackin = require('slackin-extended')
 
-slackin.default({
+slackin({
   token: 'SLACK-API-TOKEN', // reqired
   org: 'your-slack-subdomain', // required
   interval: 60000, // polling interval for Slack servers
