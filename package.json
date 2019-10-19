@@ -19,39 +19,38 @@
   },
   "dependencies": {
     "args": "^3.0.7",
-    "body-parser": "^1.18.2",
-    "cors": "^2.8.4",
-    "debug": "^3.1.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "debug": "^3.2.6",
     "email-regex": "^2.0.0",
-    "express": "^4.16.3",
-    "hostenv": "^1.0.5",
+    "express": "^4.17.1",
+    "hostenv": "^1.0.6",
     "micromatch": "^3.1.10",
-    "pug": "^2.0.3",
-    "socket.io": "^2.1.0",
-    "superagent": "^3.8.2",
+    "pug": "^2.0.4",
+    "socket.io": "^2.3.0",
+    "superagent": "^3.8.3",
     "tinycolor2": "^1.4.1"
   },
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-    "@babel/preset-env": "^7.6.0",
-    "@babel/register": "^7.6.0",
-    "babel-eslint": "^8.2.3",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-config-default": "^0.2.1",
-    "eslint-plugin-import": "^2.11.0",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "gulp-rimraf": "^0.2.2",
+    "gulp-rimraf": "^1.0.0",
     "gulp-sass": "^4.0.2",
-    "mocha": "^5.1.1",
-    "nock": "^9.2.5",
-    "supertest": "^3.0.0"
+    "mocha": "^6.2.2",
+    "nock": "^10.0.6",
+    "supertest": "^4.0.2"
   },
   "engines": {
-    "node": "^8.0.0"
+    "node": "8.x"
   },
   "bin": {
     "slackin": "./bin/slackin"
@@ -61,7 +60,9 @@
     "parser": "babel-eslint"
   },
   "scripts": {
-    "test": "mocha && eslint lib/**",
+    "lint": "eslint lib test",
+    "mocha": "mocha --require @babel/register --require ./test/setup --exit",
+    "test": "npm run lint && npm run mocha",
     "build": "gulp",
     "start": "./bin/slackin",
     "heroku-prebuild": "npm install --only=dev",
