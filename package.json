@@ -44,7 +44,7 @@
   },
   "scripts": {
     "dev": "nodemon --watch lib/ --exec \"npm start\"",
-    "lint": "eslint bin/slackin lib test",
+    "lint": "eslint --report-unused-disable-directives --ignore-path .gitignore .",
     "mocha": "mocha --require ./test/setup --exit",
     "test": "npm run build && npm run lint && npm run mocha",
     "build": "node-sass --output-style compressed --precision 6 scss/ -o assets/",
