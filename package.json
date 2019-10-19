@@ -56,11 +56,12 @@
     "slackin": "./bin/slackin"
   },
   "eslintConfig": {
+    "root": true,
     "extends": "airbnb-base",
     "parser": "babel-eslint"
   },
   "scripts": {
-    "lint": "eslint lib test",
+    "lint": "eslint bin/slackin lib test",
     "mocha": "mocha --require @babel/register --require ./test/setup --exit",
     "test": "npm run lint && npm run mocha",
     "build": "gulp",
