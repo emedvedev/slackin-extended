@@ -1,5 +1,5 @@
-import nock from 'nock';
 import assert from 'assert';
+import nock from 'nock';
 import invite from '../lib/slack-invite';
 
 describe('slack-invite', () => {
@@ -21,7 +21,7 @@ describe('slack-invite', () => {
         .reply(200, { ok: true });
 
       invite(opts, (err) => {
-        assert.equal(err, null);
+        assert.strictEqual(err, null);
         done();
       });
     });
@@ -35,8 +35,8 @@ describe('slack-invite', () => {
         });
 
       invite(opts, (err) => {
-        assert.notEqual(err, null);
-        assert.equal(err.message, 'other error');
+        assert.notStrictEqual(err, null);
+        assert.strictEqual(err.message, 'other error');
         done();
       });
     });

@@ -1,6 +1,6 @@
 import nock from 'nock';
 import request from 'supertest';
-import slackin from '../lib/index';
+import slackin from '../lib';
 
 describe('slackin', () => {
   describe('POST /invite', () => {
