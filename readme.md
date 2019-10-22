@@ -1,5 +1,7 @@
 ![](https://github.com/zeit/art/blob/e081cf46e6609b51ac485dcc337ac6644c0da5e7/slackin/repo-banner.png)
 
+![npm](https://img.shields.io/npm/v/slackin-extended) ![GitHub](https://img.shields.io/github/license/emedvedev/slackin-extended) ![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/emedvedev/slackin-extended) 
+
 ## Features
 
 Slackin-extended is a more customizable and extendable fork of the original [slackin](https://github.com/rauchg/slackin).
