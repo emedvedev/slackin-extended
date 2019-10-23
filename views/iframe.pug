@@ -1,9 +1,9 @@
 span(class=`slack-button ${large ? ' slack-btn-large' : ''}`)
 
-  a.slack-btn(href='/', target='_blank')
+  a.slack-btn(href='/', rel='noopener', target='_blank')
     span.slack-ico
     span.slack-text Slack
-  a.slack-count(href='/', target='_blank')
+  a.slack-count(href='/', rel='noopener', target='_blank')
     if total
       | #{active ? `${active}/` : ''}#{total}
     else
