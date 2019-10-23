@@ -71,14 +71,14 @@ html(class=`${large ? 'large' : ''} ${iframe ? 'iframe' : ''} theme-${theme.name
           .coc
             label
               input(type='checkbox', name='coc', value='1')
-              | I agree to the #[a(href=coc, target='_blank') Code of Conduct].
+              | I agree to the #[a(href=coc, rel='noopener', target='_blank') Code of Conduct].
 
         button.loading Get my Invite
 
-      p.signin or #[a(href=`https://${org}.slack.com`, target='_top') sign in].
+      p.signin or #[a(href=`https://${org}.slack.com/`, target='_top') sign in].
 
       unless iframe
-        footer powered by #[a(href='https://github.com/emedvedev/slackin-extended', target='_blank') slackin extended]
+        footer powered by #[a(href='https://github.com/emedvedev/slackin-extended', rel='noopener', target='_blank') slackin extended]
 
       script
         | data = {};
