@@ -1,22 +1,31 @@
-span(class=`slack-button ${large ? ' slack-btn-large' : ''}`)
+doctype
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
 
-  a.slack-btn(href='/', rel='noopener', target='_blank')
-    span.slack-ico
-    span.slack-text Slack
-  a.slack-count(href='/', rel='noopener', target='_blank')
-    if total
-      | #{active ? `${active}/` : ''}#{total}
-    else
-      | -
+    style
+      | !{extraCss}
+      | .slack-ico { background-image: url(data:image/svg+xml;base64,#{logo}); }
 
-  style
-    | !{extraCss}
-    | .slack-ico { background-image: url(data:image/svg+xml;base64,#{logo}); }
-  script
-    | data = {};
-    | data.path = !{JSON.stringify(path)};
-    | data.total = #{total != null ? total : 'null'};
-    | data.active = #{active != null ? active : 'null'};
-    | !{js}
-  if css
-    link(rel='stylesheet', href=css)
+    script
+      | data = {};
+      | data.path = !{JSON.stringify(path)};
+      | data.total = #{total != null ? total : 'null'};
+      | data.active = #{active != null ? active : 'null'};
+      | !{js}
+
+    if css
+      link(rel='stylesheet', href=css)
+
+  body
+    span(class=`slack-button ${large ? ' slack-btn-large' : ''}`)
+
+      a.slack-btn(href='/', rel='noopener', target='_blank')
+        span.slack-ico
+        span.slack-text Slack
+      a.slack-count(href='/', rel='noopener', target='_blank')
+        if total
+          | #{active ? `${active}/` : ''}#{total}
+        else
+          | -

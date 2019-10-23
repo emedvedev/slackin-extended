@@ -1,19 +1,16 @@
-html(class=`${large ? 'large' : ''} ${iframe ? 'iframe' : ''} theme-${theme.name}`)
+doctype
+html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${theme.name}`)
   head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     title Join #{name} on Slack!
-    meta(name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no')
-    if analytics
-      script(async, src=`https://www.googletagmanager.com/gtag/js?id={gaID}`)
-      script
-      | window.dataLayer = window.dataLayer || [];
-      | function gtag(){dataLayer.push(arguments);}
-      | gtag('js', new Date());
-      | gtag('config', '#{analytics}');
 
     link(rel='shortcut icon', href='https://slack.global.ssl.fastly.net/272a/img/icons/favicon-32.png')
     link(rel='stylesheet', href=`${path}assets/main.css`)
+
     if css
       link(rel='stylesheet', href=css)
+
     if theme.accent
       style
         | html .splash .active { color: #{theme.accent}; }
@@ -22,6 +19,13 @@ html(class=`${large ? 'large' : ''} ${iframe ? 'iframe' : ''} theme-${theme.name
         | html .splash button { background-color: #{theme.accent}; }
         | html .splash button:not(.disabled):active { background-color: #{theme.accentDark}; }
 
+    if analytics
+      script(async, src=`https://www.googletagmanager.com/gtag/js?id={gaID}`)
+      script
+      | window.dataLayer = window.dataLayer || [];
+      | function gtag(){dataLayer.push(arguments);}
+      | gtag('js', new Date());
+      | gtag('config', '#{analytics}');
   body
 
     .splash
