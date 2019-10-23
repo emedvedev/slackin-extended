@@ -65,7 +65,7 @@
     "mocha": "mocha --require @babel/register --require ./test/setup --exit",
     "test": "npm run lint && npm run mocha",
     "build": "gulp",
-    "start": "./bin/slackin",
+    "start": "node ./bin/slackin",
     "heroku-prebuild": "npm install --only=dev",
     "heroku-postbuild": "gulp"
   },
