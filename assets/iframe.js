@@ -36,10 +36,9 @@
   var button = document.querySelector('.slack-button')
   var lastWidth
   function refresh() {
-    var width = button.getBoundingClientRect().width
     if (window != window.top && window.postMessage) {
       var but = document.querySelector('.slack-button')
-      width = Math.ceil(but.getBoundingClientRect().width)
+      var width = Math.ceil(but.getBoundingClientRect().width)
       if (lastWidth !== width) {
         lastWidth = width
         window.parent.postMessage('slackin-width:' + id + ':' + width, '*')
