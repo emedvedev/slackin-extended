@@ -86,7 +86,7 @@
       // redirect to URL
       var redir = 'slackin-redirect:' + id + ':'
       if (redir === e.data.substr(0, redir.length)) {
-        window.location.href = e.data.substr(redir.length)
+        window.location.href = e.data.substr(redir.length) // lgtm [js/client-side-unvalidated-url-redirection]
       }
     })
   }
