@@ -3,6 +3,12 @@ const request = require('supertest');
 const slackin = require('../lib');
 
 describe('slackin', () => {
+  before(() => {
+    nock.disableNetConnect();
+    // allow websockets
+    nock.enableNetConnect(/127\.0\.0\.1:\d+/);
+  });
+
   describe('POST /invite', () => {
     beforeEach(() => {
       nock('https://myorg.slack.com')

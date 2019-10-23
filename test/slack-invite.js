@@ -3,6 +3,12 @@ const nock = require('nock');
 const invite = require('../lib/slack-invite');
 
 describe('slack-invite', () => {
+  before(() => {
+    nock.disableNetConnect();
+    // allow websockets
+    nock.enableNetConnect(/127\.0\.0\.1:\d+/);
+  });
+
   describe('.invite()', () => {
     let opts;
 
