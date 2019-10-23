@@ -8,6 +8,13 @@ describe('slackin', () => {
       nock('https://myorg.slack.com')
         .get('/api/users.list')
         .query({ token: 'mytoken', presence: '1' })
+        .reply(200, {
+          ok: true,
+          members: [{}],
+        });
+
+      nock('https://myorg.slack.com')
+        .get('/api/users.list')
         .query({ token: 'mytoken' })
         .reply(200, {
           ok: true,
@@ -82,6 +89,13 @@ describe('slackin', () => {
       nock('https://myorg.slack.com')
         .get('/api/users.list')
         .query({ token: 'mytoken', presence: '1' })
+        .reply(200, {
+          ok: true,
+          members: [{}],
+        });
+
+      nock('https://myorg.slack.com')
+        .get('/api/users.list')
         .query({ token: 'mytoken' })
         .reply(200, {
           ok: true,
