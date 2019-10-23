@@ -10,20 +10,12 @@
     "max-len": "off",
     "no-bitwise": "off",
     "no-continue": "off",
-    "no-empty": [
-      "error",
-      {
-        "allowEmptyCatch": true
-      }
-    ],
-    "no-mixed-operators": "off",
     "no-multi-assign": "off",
     "no-param-reassign": "off",
     "no-plusplus": "off",
     "no-prototype-builtins": "off",
     "no-restricted-syntax": "off",
     "no-shadow": "off",
-    "no-underscore-dangle": "off",
     "no-use-before-define": "off",
     "semi": [
       "error",
