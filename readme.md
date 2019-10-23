@@ -111,7 +111,7 @@ Workaround: sign up for a free org, and set up Slackin to point to it
 1. [Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) this repository to your own GitHub account and then [clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) it to your local device
 2. Uninstall slackin if it's already installed: `npm uninstall -g slackin-extended`
 3. Link it to the global module directory: `npm link`
-4. Run it locally: `npm start -- "workspace-id" "your-slack-token"`
+4. Run it locally with `npm run dev`, after setting up the **needed** [environment variables](#parameters)
 
 Yay! Now can use the `slackin` command everywhere.
 
