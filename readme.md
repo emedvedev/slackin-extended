@@ -1,6 +1,6 @@
-![](https://github.com/zeit/art/blob/e081cf46e6609b51ac485dcc337ac6644c0da5e7/slackin/repo-banner.png)
+![Slackin repo banner](https://github.com/zeit/art/blob/e081cf46e6609b51ac485dcc337ac6644c0da5e7/slackin/repo-banner.png)
 
-[![npm version](https://img.shields.io/npm/v/slackin-extended.svg)](https://www.npmjs.com/package/slackin-extended) [![Build Status](https://github.com/emedvedev/slackin-extended/workflows/Tests/badge.svg)](https://github.com/emedvedev/slackin-extended/actions?workflow=Tests) [![MIT License](https://img.shields.io/github/license/emedvedev/slackin-extended)](https://github.com/emedvedev/slackin-extended/blob/master/license.md) [![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/emedvedev/slackin-extended.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/emedvedev/slackin-extended/alerts/) 
+[![npm version](https://img.shields.io/npm/v/slackin-extended.svg)](https://www.npmjs.com/package/slackin-extended) [![Build Status](https://github.com/emedvedev/slackin-extended/workflows/Tests/badge.svg)](https://github.com/emedvedev/slackin-extended/actions?workflow=Tests) [![MIT License](https://img.shields.io/github/license/emedvedev/slackin-extended)](https://github.com/emedvedev/slackin-extended/blob/master/license.md) [![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/emedvedev/slackin-extended.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/emedvedev/slackin-extended/alerts/)
 
 ## Features
 
@@ -12,7 +12,7 @@ Slackin-extended is a more customizable and extendable fork of the original [sla
 - Abuse prevention via [Google reCAPTCHA](https://www.google.com/recaptcha/intro/), including Invisible reCAPTCHA.
 - Color scheme customization on both the landing page and the badge.
 
-Check out the [Demo](https://slackin.now.sh/) or read more about the [motivations and history](http://rauchg.com/slackin) behind the original Slackin. For the list of changes in `slackin-extended` see [HISTORY.md](HISTORY.md).
+Check out the [Demo](https://slackin.now.sh/). For the list of changes in `slackin-extended` see [HISTORY.md](HISTORY.md).
 
 ## Usage
 
@@ -33,9 +33,9 @@ A Docker container is available on Docker Hub: [emedvedev/slackin-extended](http
 
 To host Slackin-extended yourself, install it via `npm` and launch it on your server:
 
-```
-$ npm install -g slackin-extended
-$ slackin "workspace-id" "your-slack-token"
+```bash
+npm install -g slackin-extended
+slackin "workspace-id" "your-slack-token"
 ```
 
 ### Badges
@@ -65,7 +65,7 @@ Every CLI parameter, including mandatory arguments (workspace ID and token), can
 
 | Flag | Short | Environment variable | Default | Description |
 | --- | --- | --- | --- | --- |
-| Positional 1 | — | `SLACK_SUBDOMAIN` | **Required** | Slack workspace ID (https://**{this}**.slack.com) |
+| Positional 1 | — | `SLACK_SUBDOMAIN` | **Required** | Slack workspace ID (`https://**{this}**.slack.com`) |
 | Positional 2 | — | `SLACK_API_TOKEN` | **Required** | [API token](https://get.slack.help/hc/en-us/articles/215770388-Creating-and-regenerating-API-tokens) |
 | --port | -p | `SLACKIN_PORT` | `3000` | Port to listen on |
 | --hostname | -h | `SLACKIN_HOSTNAME` | `'0.0.0.0'` | Hostname to listen on |
@@ -91,14 +91,16 @@ Every CLI parameter, including mandatory arguments (workspace ID and token), can
 
 ### Tips and tricks
 
-* Please use reCAPTCHA for your Slack to avoid request flooding by spambots. Here is where to [get your secret and
-sitekey](https://www.google.com/recaptcha/admin).
+- Please use reCAPTCHA for your Slack to avoid request flooding by spambots. Here is where to [get your secret and
+sitekey](https://www.google.com/recaptcha/admin). Make sure you choose a **v3 API key**.
 
-* [Invisible reCAPTCHA](https://developers.google.com/recaptcha/docs/invisible) is recommended for the realtime badge users, as the regular CAPTCHA challenge is broken inside the iframe that opens on badge click.
+- [Invisible reCAPTCHA](https://developers.google.com/recaptcha/docs/invisible) is recommended for the realtime badge users, as the regular CAPTCHA challenge is broken inside the iframe that opens on badge click.
 
-* You can find or generate your API test token at [api.slack.com/web](https://api.slack.com/web) – note that the user you use to generate the token must be an admin. You need to create a dedicated `@slackin-inviter` user (or similar), mark that user an admin, and use a test token from that dedicated admin user.  Note that test tokens have actual permissions so you do not need to create an OAuth 2 app. Also check out the Slack docs on [generating a test token](https://get.slack.help/hc/en-us/articles/215770388-Creating-and-regenerating-API-tokens).
+- You can find or generate your API test token at [api.slack.com/web](https://api.slack.com/web). **Important notes**:
+  - you need a legacy token
+  - the user you use to generate the token must be an admin. You need to create a dedicated `@slackin-inviter` user (or similar), mark that user an admin, and use a test token from that dedicated admin user.  Note that test tokens have actual permissions so you **do not** need to create an OAuth 2 app. Also check out the Slack docs on [generating a test token](https://get.slack.help/hc/en-us/articles/215770388-Creating-and-regenerating-API-tokens).
 
-* **Important:** If you use Slackin in single-channel mode, you'll only be
+- **Important:** If you use Slackin in single-channel mode, you'll only be
 able to invite as many external accounts as paying members you have
 times 5. If you are not getting invite emails, this might be the reason.
 Workaround: sign up for a free org, and set up Slackin to point to it
@@ -106,10 +108,10 @@ Workaround: sign up for a free org, and set up Slackin to point to it
 
 ### Development
 
-1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device
+1. [Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) this repository to your own GitHub account and then [clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) it to your local device
 2. Uninstall slackin if it's already installed: `npm uninstall -g slackin-extended`
 3. Link it to the global module directory: `npm link`
-4. Run it locally: `npm start`
+4. Run it locally: `npm start -- "workspace-id" "your-slack-token"`
 
 Yay! Now can use the `slackin` command everywhere.
 
@@ -124,7 +126,7 @@ If you end up creating another theme, you're more than welcome to submit a PR!
 Loading `slackin` will return a `Function` that creates a `HTTP.Server` instance:
 
 ```js
-const slackin = require('slackin-extended')
+const slackin = require('slackin-extended');
 
 slackin({
   token: 'SLACK-API-TOKEN', // reqired
