@@ -57,9 +57,9 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
             input(type='hidden', name='channel', value=channels[0])
 
         if iframe
-          input.form-item(type='email', name='email', placeholder='you@yourdomain.com')
+          input.form-item(type='email', name='email', placeholder='you@yourdomain.com', required)
         else
-          input.form-item(type='email', name='email', placeholder='you@yourdomain.com' autofocus)
+          input.form-item(type='email', name='email', placeholder='you@yourdomain.com', autofocus, required)
 
         if recaptcha.sitekey
           if recaptcha.invisible
@@ -74,7 +74,7 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
         if coc
           .coc
             label
-              input(type='checkbox', name='coc', value='1')
+              input(type='checkbox', name='coc', value='1', required)
               | I agree to the #[a(href=coc, rel='noopener', target='_blank') Code of Conduct].
 
         button.loading Get my Invite
