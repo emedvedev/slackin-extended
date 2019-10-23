@@ -682,7 +682,6 @@
  */
 
     function Response(req, options) {
-      options = options || {}
       this.req = req
       this.xhr = this.req.xhr
       this.text = this.req.method != 'HEAD'
