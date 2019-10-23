@@ -677,11 +677,10 @@
  *        .post('/user', { name: 'tj' }, function(res){});
  *
  * @param {XMLHTTPRequest} xhr
- * @param {Object} options
  * @api private
  */
 
-    function Response(req, options) {
+    function Response(req) {
       this.req = req
       this.xhr = this.req.xhr
       this.text = this.req.method != 'HEAD'
@@ -719,11 +718,10 @@
  * A response of "Content-Type: text/plain; charset=utf-8"
  * will provide you with a `.type` of "text/plain".
  *
- * @param {Object} header
  * @api private
  */
 
-    Response.prototype.setHeaderProperties = function (header) {
+    Response.prototype.setHeaderProperties = function () {
       // content-type
       var ct = this.header['content-type'] || ''
       this.type = type(ct)
@@ -1371,7 +1369,7 @@
 
     request.get = function (url, data, fn) {
       var req = request('GET', url)
-      if (typeof data === 'function') fn = data, data = null
+      if (typeof data === 'function') { fn = data; data = null }
       if (data) req.query(data)
       if (fn) req.end(fn)
       return req
@@ -1389,7 +1387,7 @@
 
     request.head = function (url, data, fn) {
       var req = request('HEAD', url)
-      if (typeof data === 'function') fn = data, data = null
+      if (typeof data === 'function') { fn = data; data = null }
       if (data) req.send(data)
       if (fn) req.end(fn)
       return req
@@ -1422,7 +1420,7 @@
 
     request.patch = function (url, data, fn) {
       var req = request('PATCH', url)
-      if (typeof data === 'function') fn = data, data = null
+      if (typeof data === 'function') { fn = data; data = null }
       if (data) req.send(data)
       if (fn) req.end(fn)
       return req
@@ -1440,7 +1438,7 @@
 
     request.post = function (url, data, fn) {
       var req = request('POST', url)
-      if (typeof data === 'function') fn = data, data = null
+      if (typeof data === 'function') { fn = data; data = null }
       if (data) req.send(data)
       if (fn) req.end(fn)
       return req
@@ -1458,7 +1456,7 @@
 
     request.put = function (url, data, fn) {
       var req = request('PUT', url)
-      if (typeof data === 'function') fn = data, data = null
+      if (typeof data === 'function') { fn = data; data = null }
       if (data) req.send(data)
       if (fn) req.end(fn)
       return req
