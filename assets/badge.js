@@ -1,5 +1,4 @@
-(function (){
-
+(function () {
   // give up and resort to `target=_blank`
   // if we're not modern enough
   if (!document.body.getBoundingClientRect
@@ -9,8 +8,7 @@
   }
 
   // search for a script tag pointing to slackin.js
-  function search (){
-    var replaced = 0
+  function search() {
     var scripts = document.querySelectorAll('script')
     var script
     for (var i = 0; i < scripts.length; i++) {
@@ -31,7 +29,7 @@
   var LARGE // boolean for large/small mode, from query param
 
   // replace the script tag with an iframe
-  function replace (script){
+  function replace(script) {
     var parent = script.parentNode
     if (!parent) return
 
@@ -58,20 +56,20 @@
     parent.removeChild(script)
 
     // setup iframe RPC
-    iframe.onload = function (){
+    iframe.onload = function () {
       setup(iframe)
     }
   }
 
   // setup an "RPC" channel between iframe and us
-  function setup (iframe){
+  function setup(iframe) {
     var id = Math.random() * (1 << 24) | 0
     iframe.contentWindow.postMessage('slackin:' + id, '*')
-    window.addEventListener('message', function (e){
+    window.addEventListener('message', function (e) {
       if (typeof e.data !== 'string') return
 
       // show dialog upon click
-      if ('slackin-click:' + id  === e.data) {
+      if ('slackin-click:' + id === e.data) {
         showDialog(iframe)
       }
 
@@ -88,7 +86,7 @@
       // redirect to URL
       var redir = 'slackin-redirect:' + id + ':'
       if (redir === e.data.substr(0, redir.length)) {
-        location.href = e.data.substr(redir.length)
+        window.location.href = e.data.substr(redir.length)
       }
     })
   }
@@ -96,9 +94,11 @@
   // show the dialog around the iframe
   // by, yes, creating a new iframe
   var showing = false
-  function showDialog (iframe){
+  function showDialog(iframe) {
     if (showing) return
     showing = true
+    var unitSize
+    var arrowHeight
 
     if (LARGE) {
       unitSize = '14px'
@@ -133,7 +133,7 @@
     ni.style.height = '15.5em'
     ni.style.borderWidth = 0
     ni.src = iframe.src.replace('iframe', 'iframe/dialog')
-    ni.onload = function (){
+    ni.onload = function () {
       setup(ni)
       window.addEventListener('scroll', dposition)
       window.addEventListener('resize', dposition)
@@ -143,7 +143,7 @@
     // arrows
     var a1 = document.createElement('div')
     var a2 = document.createElement('div');
-    [a1, a2].forEach(function (a){
+    [a1, a2].forEach(function (a) {
       a.style.border = 'solid transparent'
       a.style.pointerEvents = 'none'
       a.style.width = '0'
@@ -168,8 +168,8 @@
     div.appendChild(ni)
     document.body.appendChild(div)
 
-    function position (){
-      [div, a1, a2].forEach(function (el){
+    function position() {
+      [div, a1, a2].forEach(function (el) {
         el.style.left = ''
         el.style.right = ''
         el.style.bottom = ''
@@ -216,18 +216,17 @@
       }
       div.style.left = left + 'px'
 
-      a1.style.left =
-      a2.style.left = (iframeLeft - left + Math.round(iframePos.width / 2)) + 'px'
+      a1.style.left = a2.style.left = (iframeLeft - left + Math.round(iframePos.width / 2)) + 'px'
     }
 
     // debounced positionining
     var timer
-    function dposition (){
+    function dposition() {
       clearTimeout(timer)
       timer = setTimeout(position, 100)
     }
 
-    function hide (){
+    function hide() {
       showing = false
       window.removeEventListener('scroll', dposition)
       window.removeEventListener('resize', dposition)
@@ -235,8 +234,8 @@
       document.documentElement.removeEventListener('click', click, true)
     }
 
-    function click (ev){
-      if ('__slackin' != ev.target.className) {
+    function click(ev) {
+      if (ev.target.className != '__slackin') {
         hide()
       }
     }
@@ -246,5 +245,4 @@
 
   var found = search()
   if (!found) setTimeout(search, 5000)
-
-})()
+}())
