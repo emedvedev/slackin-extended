@@ -8,13 +8,6 @@ html(lang='en')
       | !{extraCss}
       | .slack-ico { background-image: url(data:image/svg+xml;base64,#{logo}); }
 
-    script
-      | data = {};
-      | data.path = !{JSON.stringify(path)};
-      | data.total = #{total != null ? total : 'null'};
-      | data.active = #{active != null ? active : 'null'};
-      | !{js}
-
     if css
       link(rel='stylesheet', href=css)
 
@@ -29,3 +22,10 @@ html(lang='en')
           | #{active ? `${active}/` : ''}#{total}
         else
           | -
+
+    script
+      | data = {};
+      | data.path = !{JSON.stringify(path)};
+      | data.total = #{total != null ? total : 'null'};
+      | data.active = #{active != null ? active : 'null'};
+      | !{js}
