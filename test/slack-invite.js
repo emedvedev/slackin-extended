@@ -1,6 +1,6 @@
-import assert from 'assert';
-import nock from 'nock';
-import invite from '../lib/slack-invite';
+const assert = require('assert');
+const nock = require('nock');
+const invite = require('../lib/slack-invite');
 
 describe('slack-invite', () => {
   describe('.invite()', () => {

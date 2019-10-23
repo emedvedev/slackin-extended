@@ -1,6 +1,6 @@
-import nock from 'nock';
-import request from 'supertest';
-import slackin from '../lib';
+const nock = require('nock');
+const request = require('supertest');
+const slackin = require('../lib');
 
 describe('slackin', () => {
   describe('POST /invite', () => {
