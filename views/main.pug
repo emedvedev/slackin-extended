@@ -18,6 +18,7 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
         | html .splash p.signin a:hover { background-color: #{theme.accent}; }
         | html .splash button { background-color: #{theme.accent}; }
         | html .splash button:not(.disabled):active { background-color: #{theme.accentDark}; }
+        | .logo.org { background-image: url("#{logo}"); }
 
     if analytics
       script(async, src=`https://www.googletagmanager.com/gtag/js?id={gaID}`)
@@ -33,7 +34,7 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
       unless iframe
         .logos
           if logo
-            .logo.org(style=`background-image:url(${logo})`)
+            .logo.org
           .logo.slack
 
       if channels && channels.length === 1
