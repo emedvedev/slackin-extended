@@ -43,7 +43,7 @@
     "node": "10.x"
   },
   "scripts": {
-    "dev": "nodemon --watch lib/ --exec \"npm start\"",
+    "dev": "nodemon --watch assets/ --watch lib/ --ext css,js,svg --exec \"npm start\"",
     "lint": "eslint --report-unused-disable-directives --ignore-path .gitignore .",
     "mocha": "mocha --require ./test/setup --exit",
     "test": "npm run build && npm run lint && npm run mocha",
