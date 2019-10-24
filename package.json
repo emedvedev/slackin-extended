@@ -39,6 +39,8 @@
     "mocha": "^6.2.2",
     "nock": "^11.6.0",
     "nodemon": "^1.19.4",
+    "stylelint": "^11.1.1",
+    "stylelint-config-twbs-bootstrap": "^0.8.0",
     "supertest": "^4.0.2"
   },
   "engines": {
@@ -46,7 +48,9 @@
   },
   "scripts": {
     "dev": "nodemon --watch assets/ --watch lib/ --ext css,js,svg --exec \"npm start\"",
-    "lint": "eslint --report-unused-disable-directives --ignore-path .gitignore .",
+    "lint": "npm run lint:css && npm run lint:js",
+    "lint:css": "stylelint \"{assets,scss}/*.{css,scss}\"",
+    "lint:js": "eslint --report-unused-disable-directives --ignore-path .gitignore .",
     "mocha": "mocha --require ./test/setup --exit",
     "test": "npm run build && npm run lint && npm run mocha",
     "build": "sass --style compressed --no-source-map --no-error-css scss/:assets/",
