@@ -60,12 +60,11 @@
     "name": "slackin",
     "type": "npm",
     "files": [
+      "assets",
       "bin",
       "lib",
-      "views",
-      "assets",
       "scss",
-      "gulpfile.babel.js"
+      "views"
     ],
     "env": [
       "SLACK_SUBDOMAIN",
