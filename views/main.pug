@@ -89,10 +89,11 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
         | data = {};
         | data.path = !{JSON.stringify(path)};
         if recaptcha.sitekey && recaptcha.invisible
-        | function invisibleCallback (token) {
+        | function invisibleCallback(token) {
         |   return submitForm();
         | }
+
+      script(src='https://www.google.com/recaptcha/api.js', async, defer)
       script(src='https://cdn.socket.io/socket.io-1.4.4.js')
       script(src=`${path}assets/superagent.js`)
       script(src=`${path}assets/client.js`)
-      script(src='https://www.google.com/recaptcha/api.js')
