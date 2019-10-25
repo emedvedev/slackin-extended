@@ -50,7 +50,7 @@
     "node": "10.x"
   },
   "scripts": {
-    "dev": "nodemon --watch assets/ --watch lib/ --ext css,js,svg --exec \"npm start\"",
+    "dev": "nodemon --watch assets/ --watch lib/ --watch scss/ --ext js,scss,svg --exec \"npm-run-all build start\"",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
     "lint:css": "stylelint \"{assets,scss}/*.{css,scss}\"",
     "lint:js": "eslint --report-unused-disable-directives --ignore-path .gitignore .",
