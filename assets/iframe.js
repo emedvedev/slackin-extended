@@ -62,8 +62,12 @@
         }
       }
     })
-    socket.on('total', function (n) { update('total', n) })
-    socket.on('active', function (n) { update('active', n) })
+    socket.on('total', function (n) {
+      update('total', n)
+    })
+    socket.on('active', function (n) {
+      update('active', n)
+    })
 
     var anim
     function update(key, n) {

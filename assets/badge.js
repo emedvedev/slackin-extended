@@ -214,6 +214,7 @@
       if (left + divPos.width > sl + iw) {
         left = sl + iw - divPos.width
       }
+
       div.style.left = left + 'px'
 
       a1.style.left = a2.style.left = (iframeLeft - left + Math.round(iframePos.width / 2)) + 'px'
