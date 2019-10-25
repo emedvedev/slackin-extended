@@ -14,6 +14,8 @@ Slackin-extended is a more customizable and extendable fork of the original [sla
 
 Check out the [Demo](https://slackin.now.sh/). For the list of changes in `slackin-extended` see [HISTORY.md](HISTORY.md).
 
+**Disclaimer:** this project is not affiliated with Slack. The Slack logo and Slack API are copyright Slack Technologies, Inc.
+
 ## Usage
 
 Set up [Now](https://zeit.co/now) on your device and run this command. [Now](https://zeit.co/now) will automatically ask you for the required information and then spin up a deployment instantly. That easy!
