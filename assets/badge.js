@@ -56,9 +56,9 @@
     parent.removeChild(script)
 
     // setup iframe RPC
-    iframe.onload = function () {
+    iframe.addEventListener('load', function () {
       setup(iframe)
-    }
+    })
   }
 
   // setup an "RPC" channel between iframe and us
@@ -75,8 +75,8 @@
 
       // update width
       var wp = 'slackin-width:' + id + ':'
-      if (wp === e.data.substr(0, wp.length)) {
-        var width = e.data.substr(wp.length)
+      if (wp === e.data.slice(0, wp.length)) {
+        var width = e.data.slice(wp.length)
         iframe.style.width = width + 'px'
 
         // ensure it's shown (since first time hidden)
@@ -85,8 +85,8 @@
 
       // redirect to URL
       var redir = 'slackin-redirect:' + id + ':'
-      if (redir === e.data.substr(0, redir.length)) {
-        window.location.href = e.data.substr(redir.length) // lgtm [js/client-side-unvalidated-url-redirection]
+      if (redir === e.data.slice(0, redir.length)) {
+        window.location.href = e.data.slice(redir.length) // lgtm [js/client-side-unvalidated-url-redirection]
       }
     })
   }
@@ -133,12 +133,12 @@
     ni.style.height = '15.5em'
     ni.style.borderWidth = 0
     ni.src = iframe.src.replace('iframe', 'iframe/dialog')
-    ni.onload = function () {
+    ni.addEventListener('load', function () {
       setup(ni)
       window.addEventListener('scroll', dposition)
       window.addEventListener('resize', dposition)
       position()
-    }
+    })
 
     // arrows
     var a1 = document.createElement('div')
@@ -235,7 +235,7 @@
     }
 
     function click(ev) {
-      if (ev.target.className != '__slackin') {
+      if (ev.target.className !== '__slackin') {
         hide()
       }
     }
