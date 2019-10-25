@@ -1,0 +1,16 @@
+{
+  "name": "slackin",
+  "type": "npm",
+  "version": 1,
+  "files": [
+    "assets",
+    "bin",
+    "lib",
+    "scss",
+    "views"
+  ],
+  "env": [
+    "SLACK_SUBDOMAIN",
+    "SLACK_API_TOKEN"
+  ]
+}
