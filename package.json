@@ -59,6 +59,7 @@
   "now": {
     "name": "slackin",
     "type": "npm",
+    "version": 1,
     "files": [
       "assets",
       "bin",
