@@ -50,7 +50,7 @@
     "test": "npm run build && npm run lint && npm run mocha",
     "build": "node-sass --output-style compressed --precision 6 scss/ -o assets/",
     "start": "cross-env-shell node ./bin/slackin $SLACK_SUBDOMAIN $SLACK_API_TOKEN --coc \\\"$SLACKIN_COC\\\" --channels \\\"$SLACKIN_CHANNELS\\\"",
-    "prebublish": "npm run build"
+    "prepublish": "npm run build"
   },
   "eslintConfig": {
     "root": true,
