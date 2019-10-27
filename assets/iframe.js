@@ -70,7 +70,7 @@
         if (data.total) str += data.total
         if (!str.length) str = '–'
         if (anim) clearTimeout(anim)
-        count.innerHTML = str
+        count.textContent = str
         count.className = 'slack-count anim'
         anim = setTimeout(function () {
           count.className = 'slack-count'
