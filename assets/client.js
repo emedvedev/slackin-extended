@@ -20,7 +20,7 @@ function submitForm(ev) {
   button.classList.remove('loading')
   button.classList.remove('error')
   button.classList.remove('success')
-  button.innerHTML = 'Please Wait'
+  button.textContent = 'Please Wait'
   var gcaptcha_response = form.elements['g-recaptcha-response']
   var gcaptcha_token = gcaptcha_response ? gcaptcha_response.value : ''
 
@@ -32,10 +32,10 @@ function submitForm(ev) {
     if (err) {
       button.removeAttribute('disabled')
       button.classList.add('error')
-      button.innerHTML = err.message
+      button.textContent = err.message
     } else {
       button.classList.add('success')
-      button.innerHTML = msg
+      button.textContent = msg
     }
   })
 }
@@ -77,8 +77,8 @@ socket.on('active', function (n) { update('active', n) })
 
 function update(val, n) {
   var el = document.querySelector('.' + val)
-  if (el && el.innerHTML != n) {
-    el.innerHTML = n
+  if (el && el.textContent != n) {
+    el.textContent = n
     anim(el, val)
   }
 }
