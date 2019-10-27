@@ -24,7 +24,7 @@
     "email-regex": "^4.0.0",
     "express": "^4.17.1",
     "hostenv": "^1.0.6",
-    "micromatch": "^3.1.10",
+    "micromatch": "^4.0.2",
     "pug": "^2.0.4",
     "sass": "^1.23.1",
     "serve-favicon": "^2.5.0",
@@ -51,25 +51,10 @@
     "test": "npm run build && npm run lint && npm run mocha",
     "build": "sass --style compressed --no-source-map --no-error-css scss/:assets/",
     "start": "cross-env-shell node ./bin/slackin $SLACK_SUBDOMAIN $SLACK_API_TOKEN --coc \\\"$SLACKIN_COC\\\" --channels \\\"$SLACKIN_CHANNELS\\\"",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "eslintConfig": {
     "root": true,
     "extends": "airbnb-base"
-  },
-  "now": {
-    "name": "slackin",
-    "type": "npm",
-    "files": [
-      "assets",
-      "bin",
-      "lib",
-      "scss",
-      "views"
-    ],
-    "env": [
-      "SLACK_SUBDOMAIN",
-      "SLACK_API_TOKEN"
-    ]
   }
 }
