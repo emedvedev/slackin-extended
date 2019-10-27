@@ -53,7 +53,7 @@
     var url = document.createElement('a')
     url.href = window.location
     var socket = io({ path: data.path + 'socket.io' })
-    var count = document.getElementsByClassName('slack-count')[0]
+    var count = document.querySelector('.slack-count')
 
     socket.on('data', function (users) {
       for (var i in users) update(i, users[i])
