@@ -56,20 +56,5 @@
   "eslintConfig": {
     "root": true,
     "extends": "airbnb-base"
-  },
-  "now": {
-    "name": "slackin",
-    "type": "npm",
-    "files": [
-      "assets",
-      "bin",
-      "lib",
-      "scss",
-      "views"
-    ],
-    "env": [
-      "SLACK_SUBDOMAIN",
-      "SLACK_API_TOKEN"
-    ]
   }
 }
