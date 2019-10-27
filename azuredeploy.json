@@ -99,8 +99,8 @@
             "SLACK_SUBDOMAIN": "[parameters('slackTeamId')]",
             "SLACK_API_TOKEN": "[parameters('slackApiToken')]",
             "SLACKIN_RELEASE": "[parameters('slackinRelease')]",
-            "WEBSITE_NPM_DEFAULT_VERSION": "5.4.2",
-            "WEBSITE_NODE_DEFAULT_VERSION": "8.7.0",
+            "WEBSITE_NPM_DEFAULT_VERSION": "6.4.1",
+            "WEBSITE_NODE_DEFAULT_VERSION": "10.15.2",
             "command": "bash scripts/azuredeploy.sh"
           }
         },
