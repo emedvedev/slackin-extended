@@ -5,6 +5,9 @@
     "SLACK_SUBDOMAIN": "@slack-subdomain",
     "SLACK_API_TOKEN": "@slack-api-token"
   },
+  "github": {
+    "silent": true
+  },
   "builds": [
     {
       "src": "package.json",
