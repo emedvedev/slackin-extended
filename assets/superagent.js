@@ -1,8 +1,6 @@
-/* globals ActiveXObject:false */
-/* eslint-env amd */
+;(function (){
 
-(function () {
-  /**
+/**
  * Require the given path.
  *
  * @param {String} path
@@ -10,11 +8,11 @@
  * @api public
  */
 
-  function require(path, parent, orig) {
+  function require (path, parent, orig) {
     var resolved = require.resolve(path)
 
-    // lookup failed
-    if (resolved == null) {
+  // lookup failed
+    if (null == resolved) {
       orig = orig || path
       parent = parent || 'root'
       var err = new Error('Failed to require "' + orig + '" from "' + parent + '"')
@@ -26,9 +24,9 @@
 
     var module = require.modules[resolved]
 
-    // perform real require()
-    // by invoking the module's
-    // registered function
+  // perform real require()
+  // by invoking the module's
+  // registered function
     if (!module._resolving && !module.exports) {
       var mod = {}
       mod.exports = {}
@@ -42,19 +40,19 @@
     return module.exports
   }
 
-  /**
+/**
  * Registered modules.
  */
 
   require.modules = {}
 
-  /**
+/**
  * Registered aliases.
  */
 
   require.aliases = {}
 
-  /**
+/**
  * Resolve `path`.
  *
  * Lookup:
@@ -80,13 +78,13 @@
     ]
 
     for (var i = 0; i < paths.length; i++) {
-      var ppath = paths[i]
-      if (require.modules.hasOwnProperty(ppath)) return ppath
-      if (require.aliases.hasOwnProperty(ppath)) return require.aliases[ppath]
+      var path = paths[i]
+      if (require.modules.hasOwnProperty(path)) return path
+      if (require.aliases.hasOwnProperty(path)) return require.aliases[path]
     }
   }
 
-  /**
+/**
  * Normalize `path` relative to the current path.
  *
  * @param {String} curr
@@ -98,15 +96,15 @@
   require.normalize = function (curr, path) {
     var segs = []
 
-    if (path.charAt(0) != '.') return path
+    if ('.' != path.charAt(0)) return path
 
     curr = curr.split('/')
     path = path.split('/')
 
     for (var i = 0; i < path.length; ++i) {
-      if (path[i] === '..') {
+      if ('..' === path[i]) {
         curr.pop()
-      } else if (path[i] != '.' && path[i] != '') {
+      } else if ('.' != path[i] && '' != path[i]) {
         segs.push(path[i])
       }
     }
@@ -114,7 +112,7 @@
     return curr.concat(segs).join('/')
   }
 
-  /**
+/**
  * Register module at `path` with callback `definition`.
  *
  * @param {String} path
@@ -126,7 +124,7 @@
     require.modules[path] = definition
   }
 
-  /**
+/**
  * Alias a module definition.
  *
  * @param {String} from
@@ -141,7 +139,7 @@
     require.aliases[to] = from
   }
 
-  /**
+/**
  * Return a require function relative to the `parent` path.
  *
  * @param {String} parent
@@ -152,11 +150,11 @@
   require.relative = function (parent) {
     var p = require.normalize(parent, '..')
 
-    /**
+  /**
    * lastIndexOf helper.
    */
 
-    function lastIndexOf(arr, obj) {
+    function lastIndexOf (arr, obj) {
       var i = arr.length
       while (i--) {
         if (arr[i] === obj) return i
@@ -164,27 +162,27 @@
       return -1
     }
 
-    /**
+  /**
    * The relative require() itself.
    */
 
-    function localRequire(path) {
+    function localRequire (path) {
       var resolved = localRequire.resolve(path)
       return require(resolved, parent, path)
     }
 
-    /**
+  /**
    * Resolve relative to the parent.
    */
 
     localRequire.resolve = function (path) {
       var c = path.charAt(0)
-      if (c === '/') return path.slice(1)
-      if (c === '.') return require.normalize(p, path)
+      if ('/' === c) return path.slice(1)
+      if ('.' === c) return require.normalize(p, path)
 
-      // resolve deps by returning
-      // the dep in the nearest "deps"
-      // directory
+    // resolve deps by returning
+    // the dep in the nearest "deps"
+    // directory
       var segs = parent.split('/')
       var i = lastIndexOf(segs, 'deps') + 1
       if (!i) i = 0
@@ -192,7 +190,7 @@
       return path
     }
 
-    /**
+  /**
    * Check if module is defined at `path`.
    */
 
@@ -202,24 +200,25 @@
 
     return localRequire
   }
-  require.register('component-emitter/index.js', function (exports, require, module) {
-    /**
+  require.register('component-emitter/index.js', function (exports, require, module){
+
+/**
  * Expose `Emitter`.
  */
 
     module.exports = Emitter
 
-    /**
+/**
  * Initialize a new `Emitter`.
  *
  * @api public
  */
 
-    function Emitter(obj) {
+    function Emitter (obj) {
       if (obj) return mixin(obj)
-    }
+    };
 
-    /**
+/**
  * Mixin the emitter properties.
  *
  * @param {Object} obj
@@ -227,14 +226,14 @@
  * @api private
  */
 
-    function mixin(obj) {
+    function mixin (obj) {
       for (var key in Emitter.prototype) {
         obj[key] = Emitter.prototype[key]
       }
       return obj
     }
 
-    /**
+/**
  * Listen on the given `event` with `fn`.
  *
  * @param {String} event
@@ -243,14 +242,15 @@
  * @api public
  */
 
-    Emitter.prototype.on = Emitter.prototype.addEventListener = function (event, fn) {
-      this._callbacks = this._callbacks || {};
-      (this._callbacks[event] = this._callbacks[event] || [])
-        .push(fn)
-      return this
-    }
+    Emitter.prototype.on =
+Emitter.prototype.addEventListener = function (event, fn){
+  this._callbacks = this._callbacks || {};
+  (this._callbacks[event] = this._callbacks[event] || [])
+    .push(fn)
+  return this
+}
 
-    /**
+/**
  * Adds an `event` listener that will be invoked a single
  * time then automatically removed.
  *
@@ -260,11 +260,11 @@
  * @api public
  */
 
-    Emitter.prototype.once = function (event, fn) {
+    Emitter.prototype.once = function (event, fn){
       var self = this
       this._callbacks = this._callbacks || {}
 
-      function on() {
+      function on () {
         self.off(event, on)
         fn.apply(this, arguments)
       }
@@ -274,7 +274,7 @@
       return this
     }
 
-    /**
+/**
  * Remove the given callback for `event` or all
  * registered callbacks.
  *
@@ -284,38 +284,41 @@
  * @api public
  */
 
-    Emitter.prototype.off = Emitter.prototype.removeListener = Emitter.prototype.removeAllListeners = Emitter.prototype.removeEventListener = function (event, fn) {
-      this._callbacks = this._callbacks || {}
+    Emitter.prototype.off =
+Emitter.prototype.removeListener =
+Emitter.prototype.removeAllListeners =
+Emitter.prototype.removeEventListener = function (event, fn){
+  this._callbacks = this._callbacks || {}
 
-      // all
-      if (arguments.length === 0) {
-        this._callbacks = {}
-        return this
-      }
+  // all
+  if (0 === arguments.length) {
+    this._callbacks = {}
+    return this
+  }
 
-      // specific event
-      var callbacks = this._callbacks[event]
-      if (!callbacks) return this
+  // specific event
+  var callbacks = this._callbacks[event]
+  if (!callbacks) return this
 
-      // remove all handlers
-      if (arguments.length === 1) {
-        delete this._callbacks[event]
-        return this
-      }
+  // remove all handlers
+  if (1 === arguments.length) {
+    delete this._callbacks[event]
+    return this
+  }
 
-      // remove specific handler
-      var cb
-      for (var i = 0; i < callbacks.length; i++) {
-        cb = callbacks[i]
-        if (cb === fn || cb.fn === fn) {
-          callbacks.splice(i, 1)
-          break
-        }
-      }
-      return this
+  // remove specific handler
+  var cb
+  for (var i = 0; i < callbacks.length; i++) {
+    cb = callbacks[i]
+    if (cb === fn || cb.fn === fn) {
+      callbacks.splice(i, 1)
+      break
     }
+  }
+  return this
+}
 
-    /**
+/**
  * Emit `event` with the given args.
  *
  * @param {String} event
@@ -323,10 +326,10 @@
  * @return {Emitter}
  */
 
-    Emitter.prototype.emit = function (event) {
+    Emitter.prototype.emit = function (event){
       this._callbacks = this._callbacks || {}
-      var args = [].slice.call(arguments, 1)
-      var callbacks = this._callbacks[event]
+      var args = [].slice.call(arguments, 1),
+          callbacks = this._callbacks[event]
 
       if (callbacks) {
         callbacks = callbacks.slice(0)
@@ -338,7 +341,7 @@
       return this
     }
 
-    /**
+/**
  * Return array of callbacks for `event`.
  *
  * @param {String} event
@@ -346,12 +349,12 @@
  * @api public
  */
 
-    Emitter.prototype.listeners = function (event) {
+    Emitter.prototype.listeners = function (event){
       this._callbacks = this._callbacks || {}
       return this._callbacks[event] || []
     }
 
-    /**
+/**
  * Check if this emitter has `event` handlers.
  *
  * @param {String} event
@@ -359,12 +362,14 @@
  * @api public
  */
 
-    Emitter.prototype.hasListeners = function (event) {
-      return !!this.listeners(event).length
+    Emitter.prototype.hasListeners = function (event){
+      return !! this.listeners(event).length
     }
+
   })
-  require.register('component-reduce/index.js', function (exports, require, module) {
-    /**
+  require.register('component-reduce/index.js', function (exports, require, module){
+
+/**
  * Reduce `arr` with `fn`.
  *
  * @param {Array} arr
@@ -374,12 +379,12 @@
  * TODO: combatible error handling?
  */
 
-    module.exports = function (arr, fn, initial) {
+    module.exports = function (arr, fn, initial){
       var idx = 0
       var len = arr.length
       var curr = arguments.length === 3
-        ? initial
-        : arr[idx++]
+    ? initial
+    : arr[idx++]
 
       while (idx < len) {
         curr = fn.call(null, curr, arr[idx], ++idx, arr)
@@ -388,29 +393,29 @@
       return curr
     }
   })
-  require.register('superagent/lib/client.js', function (exports, require, module) {
-    /**
+  require.register('superagent/lib/client.js', function (exports, require, module){
+/**
  * Module dependencies.
  */
 
     var Emitter = require('emitter')
     var reduce = require('reduce')
 
-    /**
+/**
  * Root reference for iframes.
  */
 
-    var root = typeof window === 'undefined'
-      ? this
-      : window
+    var root = 'undefined' === typeof window
+  ? this
+  : window
 
-    /**
+/**
  * Noop.
  */
 
-    function noop() {}
+    function noop (){};
 
-    /**
+/**
  * Check if `obj` is a host object,
  * we don't want to serialize these :)
  *
@@ -421,7 +426,7 @@
  * @api private
  */
 
-    function isHost(obj) {
+    function isHost (obj) {
       var str = {}.toString.call(obj)
 
       switch (str) {
@@ -434,24 +439,24 @@
       }
     }
 
-    /**
+/**
  * Determine XHR.
  */
 
-    function getXHR() {
+    function getXHR () {
       if (root.XMLHttpRequest
-    && (root.location.protocol != 'file:' || !root.ActiveXObject)) {
-        return new XMLHttpRequest()
+    && ('file:' != root.location.protocol || !root.ActiveXObject)) {
+        return new XMLHttpRequest
+      } else {
+        try { return new ActiveXObject('Microsoft.XMLHTTP') } catch(e) {}
+        try { return new ActiveXObject('Msxml2.XMLHTTP.6.0') } catch(e) {}
+        try { return new ActiveXObject('Msxml2.XMLHTTP.3.0') } catch(e) {}
+        try { return new ActiveXObject('Msxml2.XMLHTTP') } catch(e) {}
       }
-      try { return new ActiveXObject('Microsoft.XMLHTTP') } catch (e) {}
-      try { return new ActiveXObject('Msxml2.XMLHTTP.6.0') } catch (e) {}
-      try { return new ActiveXObject('Msxml2.XMLHTTP.3.0') } catch (e) {}
-      try { return new ActiveXObject('Msxml2.XMLHTTP') } catch (e) {}
-
       return false
     }
 
-    /**
+/**
  * Removes leading and trailing whitespace, added to support IE.
  *
  * @param {String} s
@@ -460,10 +465,10 @@
  */
 
     var trim = ''.trim
-      ? function (s) { return s.trim() }
-      : function (s) { return s.replace(/(^\s*|\s*$)/g, '') }
+  ? function (s) { return s.trim() }
+  : function (s) { return s.replace(/(^\s*|\s*$)/g, '') }
 
-    /**
+/**
  * Check if `obj` is an object.
  *
  * @param {Object} obj
@@ -471,11 +476,11 @@
  * @api private
  */
 
-    function isObject(obj) {
+    function isObject (obj) {
       return obj === Object(obj)
     }
 
-    /**
+/**
  * Serialize the given `obj`.
  *
  * @param {Object} obj
@@ -483,11 +488,11 @@
  * @api private
  */
 
-    function serialize(obj) {
+    function serialize (obj) {
       if (!isObject(obj)) return obj
       var pairs = []
       for (var key in obj) {
-        if (obj[key] != null) {
+        if (null != obj[key]) {
           pairs.push(encodeURIComponent(key)
         + '=' + encodeURIComponent(obj[key]))
         }
@@ -495,13 +500,13 @@
       return pairs.join('&')
     }
 
-    /**
+/**
  * Expose serialization method.
  */
 
     request.serializeObject = serialize
 
-    /**
+ /**
   * Parse the given x-www-form-urlencoded `str`.
   *
   * @param {String} str
@@ -509,7 +514,7 @@
   * @api private
   */
 
-    function parseString(str) {
+    function parseString (str) {
       var obj = {}
       var pairs = str.split('&')
       var parts
@@ -524,13 +529,13 @@
       return obj
     }
 
-    /**
+/**
  * Expose parser.
  */
 
     request.parseString = parseString
 
-    /**
+/**
  * Default MIME type map.
  *
  *     superagent.types.xml = 'application/xml';
@@ -542,11 +547,11 @@
       json: 'application/json',
       xml: 'application/xml',
       urlencoded: 'application/x-www-form-urlencoded',
-      form: 'application/x-www-form-urlencoded',
+      'form': 'application/x-www-form-urlencoded',
       'form-data': 'application/x-www-form-urlencoded'
     }
 
-    /**
+/**
  * Default serialization map.
  *
  *     superagent.serialize['application/xml'] = function(obj){
@@ -560,7 +565,7 @@
       'application/json': JSON.stringify
     }
 
-    /**
+ /**
   * Default parsers.
   *
   *     superagent.parse['application/xml'] = function(str){
@@ -574,7 +579,7 @@
       'application/json': JSON.parse
     }
 
-    /**
+/**
  * Parse the given header `str` into
  * an object containing the mapped fields.
  *
@@ -583,7 +588,7 @@
  * @api private
  */
 
-    function parseHeader(str) {
+    function parseHeader (str) {
       var lines = str.split(/\r?\n/)
       var fields = {}
       var index
@@ -604,7 +609,7 @@
       return fields
     }
 
-    /**
+/**
  * Return the mime type for the given `str`.
  *
  * @param {String} str
@@ -612,11 +617,11 @@
  * @api private
  */
 
-    function type(str) {
+    function type (str){
       return str.split(/ *; */).shift()
-    }
+    };
 
-    /**
+/**
  * Return header field parameters.
  *
  * @param {String} str
@@ -624,18 +629,18 @@
  * @api private
  */
 
-    function params(str) {
-      return reduce(str.split(/ *; */), function (obj, str) {
-        var parts = str.split(/ *= */)
-        var key = parts.shift()
-        var val = parts.shift()
+    function params (str){
+      return reduce(str.split(/ *; */), function (obj, str){
+        var parts = str.split(/ *= */),
+            key = parts.shift(),
+            val = parts.shift()
 
         if (key && val) obj[key] = val
         return obj
       }, {})
-    }
+    };
 
-    /**
+/**
  * Initialize a new `Response` with the given `xhr`.
  *
  *  - set flags (.ok, .error, etc)
@@ -677,28 +682,30 @@
  *        .post('/user', { name: 'tj' }, function(res){});
  *
  * @param {XMLHTTPRequest} xhr
+ * @param {Object} options
  * @api private
  */
 
-    function Response(req) {
+    function Response (req, options) {
+      options = options || {}
       this.req = req
       this.xhr = this.req.xhr
-      this.text = this.req.method != 'HEAD'
-        ? this.xhr.responseText
-        : null
+      this.text = this.req.method !='HEAD'
+     ? this.xhr.responseText
+     : null
       this.setStatusProperties(this.xhr.status)
       this.header = this.headers = parseHeader(this.xhr.getAllResponseHeaders())
-      // getAllResponseHeaders sometimes falsely returns "" for CORS requests, but
-      // getResponseHeader still works. so we get content-type even if getting
-      // other headers fails.
+  // getAllResponseHeaders sometimes falsely returns "" for CORS requests, but
+  // getResponseHeader still works. so we get content-type even if getting
+  // other headers fails.
       this.header['content-type'] = this.xhr.getResponseHeader('content-type')
       this.setHeaderProperties(this.header)
       this.body = this.req.method != 'HEAD'
-        ? this.parseBody(this.text)
-        : null
+    ? this.parseBody(this.text)
+    : null
     }
 
-    /**
+/**
  * Get case-insensitive `field` value.
  *
  * @param {String} field
@@ -706,11 +713,11 @@
  * @api public
  */
 
-    Response.prototype.get = function (field) {
+    Response.prototype.get = function (field){
       return this.header[field.toLowerCase()]
     }
 
-    /**
+/**
  * Set header related properties:
  *
  *   - `.type` the content type without params
@@ -718,20 +725,21 @@
  * A response of "Content-Type: text/plain; charset=utf-8"
  * will provide you with a `.type` of "text/plain".
  *
+ * @param {Object} header
  * @api private
  */
 
-    Response.prototype.setHeaderProperties = function () {
-      // content-type
+    Response.prototype.setHeaderProperties = function (header){
+  // content-type
       var ct = this.header['content-type'] || ''
       this.type = type(ct)
 
-      // params
+  // params
       var obj = params(ct)
       for (var key in obj) this[key] = obj[key]
     }
 
-    /**
+/**
  * Parse the given body `str`.
  *
  * Used for auto-parsing of bodies. Parsers
@@ -742,14 +750,14 @@
  * @api private
  */
 
-    Response.prototype.parseBody = function (str) {
+    Response.prototype.parseBody = function (str){
       var parse = request.parse[this.type]
       return parse && str && str.length
-        ? parse(str)
-        : null
+    ? parse(str)
+    : null
     }
 
-    /**
+/**
  * Set flags such as `.ok` based on `status`.
  *
  * For example a 2xx response will give you a `.ok` of __true__
@@ -770,40 +778,40 @@
  * @api private
  */
 
-    Response.prototype.setStatusProperties = function (status) {
+    Response.prototype.setStatusProperties = function (status){
       var type = status / 100 | 0
 
-      // status / class
+  // status / class
       this.status = status
       this.statusType = type
 
-      // basics
-      this.info = type === 1
-      this.ok = type === 2
-      this.clientError = type === 4
-      this.serverError = type === 5
-      this.error = (type === 4 || type === 5)
-        ? this.toError()
-        : false
+  // basics
+      this.info = 1 === type
+      this.ok = 2 === type
+      this.clientError = 4 === type
+      this.serverError = 5 === type
+      this.error = (4 === type || 5 === type)
+    ? this.toError()
+    : false
 
-      // sugar
-      this.accepted = status === 202
-      this.noContent = status === 204 || status === 1223
-      this.badRequest = status === 400
-      this.unauthorized = status === 401
-      this.notAcceptable = status === 406
-      this.notFound = status === 404
-      this.forbidden = status === 403
+  // sugar
+      this.accepted = 202 === status
+      this.noContent = 204 === status || 1223 === status
+      this.badRequest = 400 === status
+      this.unauthorized = 401 === status
+      this.notAcceptable = 406 === status
+      this.notFound = 404 === status
+      this.forbidden = 403 === status
     }
 
-    /**
+/**
  * Return an `Error` representative of this response.
  *
  * @return {Error}
  * @api public
  */
 
-    Response.prototype.toError = function () {
+    Response.prototype.toError = function (){
       var req = this.req
       var method = req.method
       var url = req.url
@@ -817,13 +825,13 @@
       return err
     }
 
-    /**
+/**
  * Expose `Response`.
  */
 
     request.Response = Response
 
-    /**
+/**
  * Initialize a new `Request` with the given `method` and `url`.
  *
  * @param {String} method
@@ -831,7 +839,7 @@
  * @api public
  */
 
-    function Request(method, url) {
+    function Request (method, url) {
       var self = this
       Emitter.call(this)
       this._query = this._query || []
@@ -839,13 +847,13 @@
       this.url = url
       this.header = {}
       this._header = {}
-      this.on('end', function () {
+      this.on('end', function (){
         var err = null
         var res = null
 
         try {
           res = new Response(self)
-        } catch (e) {
+        } catch(e) {
           err = new Error('Parser is unable to parse the response')
           err.parse = true
           err.original = e
@@ -855,13 +863,13 @@
       })
     }
 
-    /**
+/**
  * Mixin `Emitter`.
  */
 
     Emitter(Request.prototype)
 
-    /**
+/**
  * Allow for extension
  */
 
@@ -870,7 +878,7 @@
       return this
     }
 
-    /**
+/**
  * Set timeout to `ms`.
  *
  * @param {Number} ms
@@ -878,32 +886,32 @@
  * @api public
  */
 
-    Request.prototype.timeout = function (ms) {
+    Request.prototype.timeout = function (ms){
       this._timeout = ms
       return this
     }
 
-    /**
+/**
  * Clear previous timeout.
  *
  * @return {Request} for chaining
  * @api public
  */
 
-    Request.prototype.clearTimeout = function () {
+    Request.prototype.clearTimeout = function (){
       this._timeout = 0
       clearTimeout(this._timer)
       return this
     }
 
-    /**
+/**
  * Abort the request, and clear potential timeout.
  *
  * @return {Request}
  * @api public
  */
 
-    Request.prototype.abort = function () {
+    Request.prototype.abort = function (){
       if (this.aborted) return
       this.aborted = true
       this.xhr.abort()
@@ -912,7 +920,7 @@
       return this
     }
 
-    /**
+/**
  * Set header `field` to `val`, or multiple fields with one object.
  *
  * Examples:
@@ -932,7 +940,7 @@
  * @api public
  */
 
-    Request.prototype.set = function (field, val) {
+    Request.prototype.set = function (field, val){
       if (isObject(field)) {
         for (var key in field) {
           this.set(key, field[key])
@@ -944,7 +952,7 @@
       return this
     }
 
-    /**
+/**
  * Remove header `field`.
  *
  * Example:
@@ -958,13 +966,13 @@
  * @api public
  */
 
-    Request.prototype.unset = function (field) {
+    Request.prototype.unset = function (field){
       delete this._header[field.toLowerCase()]
       delete this.header[field]
       return this
     }
 
-    /**
+/**
  * Get case-insensitive header `field` value.
  *
  * @param {String} field
@@ -972,11 +980,11 @@
  * @api private
  */
 
-    Request.prototype.getHeader = function (field) {
+    Request.prototype.getHeader = function (field){
       return this._header[field.toLowerCase()]
     }
 
-    /**
+/**
  * Set Content-Type to `type`, mapping values from `request.types`.
  *
  * Examples:
@@ -998,12 +1006,12 @@
  * @api public
  */
 
-    Request.prototype.type = function (type) {
+    Request.prototype.type = function (type){
       this.set('Content-Type', request.types[type] || type)
       return this
     }
 
-    /**
+/**
  * Set Accept to `type`, mapping values from `request.types`.
  *
  * Examples:
@@ -1023,12 +1031,12 @@
  * @api public
  */
 
-    Request.prototype.accept = function (type) {
+    Request.prototype.accept = function (type){
       this.set('Accept', request.types[type] || type)
       return this
     }
 
-    /**
+/**
  * Set Authorization field value with `user` and `pass`.
  *
  * @param {String} user
@@ -1037,13 +1045,13 @@
  * @api public
  */
 
-    Request.prototype.auth = function (user, pass) {
+    Request.prototype.auth = function (user, pass){
       var str = btoa(user + ':' + pass)
       this.set('Authorization', 'Basic ' + str)
       return this
     }
 
-    /**
+/**
 * Add query-string `val`.
 *
 * Examples:
@@ -1057,13 +1065,13 @@
 * @api public
 */
 
-    Request.prototype.query = function (val) {
-      if (typeof val !== 'string') val = serialize(val)
+    Request.prototype.query = function (val){
+      if ('string' != typeof val) val = serialize(val)
       if (val) this._query.push(val)
       return this
     }
 
-    /**
+/**
  * Write the field `name` and `val` for "multipart/form-data"
  * request bodies.
  *
@@ -1079,13 +1087,13 @@
  * @api public
  */
 
-    Request.prototype.field = function (name, val) {
+    Request.prototype.field = function (name, val){
       if (!this._formData) this._formData = new FormData()
       this._formData.append(name, val)
       return this
     }
 
-    /**
+/**
  * Queue the given `file` as an attachment to the specified `field`,
  * with optional `filename`.
  *
@@ -1102,13 +1110,13 @@
  * @api public
  */
 
-    Request.prototype.attach = function (field, file, filename) {
+    Request.prototype.attach = function (field, file, filename){
       if (!this._formData) this._formData = new FormData()
       this._formData.append(field, file, filename)
       return this
     }
 
-    /**
+/**
  * Send `data`, defaulting the `.type()` to "json" when
  * an object is given.
  *
@@ -1159,22 +1167,22 @@
  * @api public
  */
 
-    Request.prototype.send = function (data) {
+    Request.prototype.send = function (data){
       var obj = isObject(data)
       var type = this.getHeader('Content-Type')
 
-      // merge
+  // merge
       if (obj && isObject(this._data)) {
         for (var key in data) {
           this._data[key] = data[key]
         }
-      } else if (typeof data === 'string') {
+      } else if ('string' === typeof data) {
         if (!type) this.type('form')
         type = this.getHeader('Content-Type')
-        if (type === 'application/x-www-form-urlencoded') {
+        if ('application/x-www-form-urlencoded' === type) {
           this._data = this._data
-            ? this._data + '&' + data
-            : data
+        ? this._data + '&' + data
+        : data
         } else {
           this._data = (this._data || '') + data
         }
@@ -1187,7 +1195,7 @@
       return this
     }
 
-    /**
+/**
  * Invoke the callback with `err` and `res`
  * and handle arity check.
  *
@@ -1196,40 +1204,40 @@
  * @api private
  */
 
-    Request.prototype.callback = function (err, res) {
+    Request.prototype.callback = function (err, res){
       var fn = this._callback
       this.clearTimeout()
-      if (fn.length === 2) return fn(err, res)
+      if (2 === fn.length) return fn(err, res)
       if (err) return this.emit('error', err)
       fn(res)
     }
 
-    /**
+/**
  * Invoke callback with x-domain error.
  *
  * @api private
  */
 
-    Request.prototype.crossDomainError = function () {
+    Request.prototype.crossDomainError = function (){
       var err = new Error('Origin is not allowed by Access-Control-Allow-Origin')
       err.crossDomain = true
       this.callback(err)
     }
 
-    /**
+/**
  * Invoke callback with timeout error.
  *
  * @api private
  */
 
-    Request.prototype.timeoutError = function () {
+    Request.prototype.timeoutError = function (){
       var timeout = this._timeout
       var err = new Error('timeout of ' + timeout + 'ms exceeded')
       err.timeout = timeout
       this.callback(err)
     }
 
-    /**
+/**
  * Enable transmission of cookies with x-domain requests.
  *
  * Note that for this to work the origin must not be
@@ -1240,12 +1248,12 @@
  * @api public
  */
 
-    Request.prototype.withCredentials = function () {
+    Request.prototype.withCredentials = function (){
       this._withCredentials = true
       return this
     }
 
-    /**
+/**
  * Initiate request, invoking callback `fn(res)`
  * with an instanceof `Response`.
  *
@@ -1254,81 +1262,81 @@
  * @api public
  */
 
-    Request.prototype.end = function (fn) {
+    Request.prototype.end = function (fn){
       var self = this
       var xhr = this.xhr = getXHR()
       var query = this._query.join('&')
       var timeout = this._timeout
       var data = this._formData || this._data
 
-      // store callback
+  // store callback
       this._callback = fn || noop
 
-      // state change
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState != 4) return
-        if (xhr.status === 0) {
+  // state change
+      xhr.onreadystatechange = function (){
+        if (4 != xhr.readyState) return
+        if (0 === xhr.status) {
           if (self.aborted) return self.timeoutError()
           return self.crossDomainError()
         }
         self.emit('end')
       }
 
-      // progress
+  // progress
       if (xhr.upload) {
-        xhr.upload.onprogress = function (e) {
+        xhr.upload.onprogress = function (e){
           e.percent = e.loaded / e.total * 100
           self.emit('progress', e)
         }
       }
 
-      // timeout
+  // timeout
       if (timeout && !this._timer) {
-        this._timer = setTimeout(function () {
+        this._timer = setTimeout(function (){
           self.abort()
         }, timeout)
       }
 
-      // querystring
+  // querystring
       if (query) {
         query = request.serializeObject(query)
         this.url += ~this.url.indexOf('?')
-          ? '&' + query
-          : '?' + query
+      ? '&' + query
+      : '?' + query
       }
 
-      // initiate request
+  // initiate request
       xhr.open(this.method, this.url, true)
 
-      // CORS
+  // CORS
       if (this._withCredentials) xhr.withCredentials = true
 
-      // body
-      if (this.method != 'GET' && this.method != 'HEAD' && typeof data !== 'string' && !isHost(data)) {
-        // serialize stuff
+  // body
+      if ('GET' != this.method && 'HEAD' != this.method && 'string' != typeof data && !isHost(data)) {
+    // serialize stuff
         var serialize = request.serialize[this.getHeader('Content-Type')]
         if (serialize) data = serialize(data)
       }
 
-      // set header fields
+  // set header fields
       for (var field in this.header) {
-        if (this.header[field] == null) continue
+        if (null == this.header[field]) continue
         xhr.setRequestHeader(field, this.header[field])
       }
 
-      // send stuff
+  // send stuff
       this.emit('request', this)
       xhr.send(data)
       return this
     }
 
-    /**
+/**
  * Expose `Request`.
  */
 
     request.Request = Request
 
-    /**
+/**
  * Issue a request:
  *
  * Examples:
@@ -1343,21 +1351,21 @@
  * @api public
  */
 
-    function request(method, url) {
-      // callback
-      if (typeof url === 'function') {
+    function request (method, url) {
+  // callback
+      if ('function' === typeof url) {
         return new Request('GET', method).end(url)
       }
 
-      // url first
-      if (arguments.length === 1) {
+  // url first
+      if (1 === arguments.length) {
         return new Request('GET', method)
       }
 
       return new Request(method, url)
     }
 
-    /**
+/**
  * GET `url` with optional callback `fn(res)`.
  *
  * @param {String} url
@@ -1367,15 +1375,15 @@
  * @api public
  */
 
-    request.get = function (url, data, fn) {
+    request.get = function (url, data, fn){
       var req = request('GET', url)
-      if (typeof data === 'function') { fn = data; data = null }
+      if ('function' === typeof data) fn = data, data = null
       if (data) req.query(data)
       if (fn) req.end(fn)
       return req
     }
 
-    /**
+/**
  * HEAD `url` with optional callback `fn(res)`.
  *
  * @param {String} url
@@ -1385,15 +1393,15 @@
  * @api public
  */
 
-    request.head = function (url, data, fn) {
+    request.head = function (url, data, fn){
       var req = request('HEAD', url)
-      if (typeof data === 'function') { fn = data; data = null }
+      if ('function' === typeof data) fn = data, data = null
       if (data) req.send(data)
       if (fn) req.end(fn)
       return req
     }
 
-    /**
+/**
  * DELETE `url` with optional callback `fn(res)`.
  *
  * @param {String} url
@@ -1402,13 +1410,13 @@
  * @api public
  */
 
-    request.del = function (url, fn) {
+    request.del = function (url, fn){
       var req = request('DELETE', url)
       if (fn) req.end(fn)
       return req
     }
 
-    /**
+/**
  * PATCH `url` with optional `data` and callback `fn(res)`.
  *
  * @param {String} url
@@ -1418,15 +1426,15 @@
  * @api public
  */
 
-    request.patch = function (url, data, fn) {
+    request.patch = function (url, data, fn){
       var req = request('PATCH', url)
-      if (typeof data === 'function') { fn = data; data = null }
+      if ('function' === typeof data) fn = data, data = null
       if (data) req.send(data)
       if (fn) req.end(fn)
       return req
     }
 
-    /**
+/**
  * POST `url` with optional `data` and callback `fn(res)`.
  *
  * @param {String} url
@@ -1436,15 +1444,15 @@
  * @api public
  */
 
-    request.post = function (url, data, fn) {
+    request.post = function (url, data, fn){
       var req = request('POST', url)
-      if (typeof data === 'function') { fn = data; data = null }
+      if ('function' === typeof data) fn = data, data = null
       if (data) req.send(data)
       if (fn) req.end(fn)
       return req
     }
 
-    /**
+/**
  * PUT `url` with optional `data` and callback `fn(res)`.
  *
  * @param {String} url
@@ -1454,19 +1462,20 @@
  * @api public
  */
 
-    request.put = function (url, data, fn) {
+    request.put = function (url, data, fn){
       var req = request('PUT', url)
-      if (typeof data === 'function') { fn = data; data = null }
+      if ('function' === typeof data) fn = data, data = null
       if (data) req.send(data)
       if (fn) req.end(fn)
       return req
     }
 
-    /**
+/**
  * Expose `request`.
  */
 
     module.exports = request
+
   })
 
   require.alias('component-emitter/index.js', 'superagent/deps/emitter/index.js')
@@ -1475,11 +1484,10 @@
   require.alias('component-reduce/index.js', 'superagent/deps/reduce/index.js')
   require.alias('component-reduce/index.js', 'reduce/index.js')
 
-  require.alias('superagent/lib/client.js', 'superagent/index.js'); if (typeof exports === 'object') {
+  require.alias('superagent/lib/client.js', 'superagent/index.js');if (typeof exports === 'object') {
     module.exports = require('superagent')
   } else if (typeof define === 'function' && define.amd) {
-    define([], function () { return require('superagent') })
+    define([], function (){ return require('superagent') })
   } else {
-    this.superagent = require('superagent')
-  }
-}())
+    this['superagent'] = require('superagent')
+  }})()
