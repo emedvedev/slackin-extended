@@ -12,7 +12,7 @@ Slackin-extended is a more customizable and extendable fork of the original [sla
 - Abuse prevention via [Google reCAPTCHA](https://www.google.com/recaptcha/intro/), including Invisible reCAPTCHA.
 - Color scheme customization on both the landing page and the badge.
 
-Check out the [Demo](https://slackin.now.sh/). For the list of changes in `slackin-extended` see [HISTORY.md](HISTORY.md).
+Check out the [Demo](https://slackin-extended.emedvedev.now.sh/), which is deployed live from the `master` branch. For the list of changes in `slackin-extended` see [HISTORY.md](HISTORY.md).
 
 **Disclaimer:** this project is not affiliated with Slack. The Slack logo and Slack API are copyright Slack Technologies, Inc.
 
