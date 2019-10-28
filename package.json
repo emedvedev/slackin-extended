@@ -9,7 +9,7 @@
     "slackin": "./bin/slackin"
   },
   "files": [
-    "assets/*.{css,js,svg}",
+    "assets/*.{css,js,svg,png,ico}",
     "bin/slackin",
     "lib/*.js",
     "views/*.pug"
