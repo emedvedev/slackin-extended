@@ -53,7 +53,7 @@
     "dev": "nodemon --watch assets/ --watch lib/ --watch scss/ --ext js,scss,svg --exec \"npm-run-all build start\"",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
     "lint:css": "stylelint \"{assets,scss}/*.{css,scss}\"",
-    "lint:js": "eslint --report-unused-disable-directives --ignore-path .gitignore .",
+    "lint:js": "eslint --cache --cache-location node_modules/.cache/.eslintcache --report-unused-disable-directives --ignore-path .gitignore .",
     "mocha": "mocha --require ./test/setup --exit",
     "test": "npm-run-all build lint mocha",
     "build": "npm-run-all build:*",
