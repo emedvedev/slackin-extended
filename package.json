@@ -9,10 +9,10 @@
     "slackin": "./bin/slackin"
   },
   "files": [
-    "assets",
-    "bin",
-    "lib",
-    "views"
+    "assets/*.{css,js,svg,png,ico}",
+    "bin/slackin",
+    "lib/*.js",
+    "views/*.pug"
   ],
   "dependencies": {
     "args": "^5.0.1",
