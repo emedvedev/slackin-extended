@@ -59,6 +59,7 @@
     "build": "npm-run-all build:*",
     "build:sass": "sass --style compressed --no-source-map --no-error-css scss/:assets/",
     "build:prefix": "postcss --use autoprefixer --no-map --replace \"assets/*.css\" \"!assets/iframe-button.css\"",
+    "now-build": "npm run build && cp node_modules/superagent/superagent.js assets",
     "start": "cross-env-shell node ./bin/slackin $SLACK_SUBDOMAIN $SLACK_API_TOKEN --coc \\\"$SLACKIN_COC\\\" --channels \\\"$SLACKIN_CHANNELS\\\"",
     "prepublishOnly": "npm run build"
   },
