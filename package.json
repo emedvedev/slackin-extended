@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "args": "^5.0.1",
+    "autoprefixer": "^9.7.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
@@ -25,6 +26,8 @@
     "express": "^4.17.1",
     "hostenv": "^1.0.6",
     "micromatch": "^4.0.2",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.3",
     "pug": "^2.0.4",
     "sass": "^1.23.1",
     "serve-favicon": "^2.5.0",
@@ -39,6 +42,8 @@
     "mocha": "^6.2.2",
     "nock": "^11.6.0",
     "nodemon": "^1.19.4",
+    "stylelint": "^11.1.1",
+    "stylelint-config-twbs-bootstrap": "^0.8.0",
     "supertest": "^4.0.2"
   },
   "engines": {
@@ -46,10 +51,14 @@
   },
   "scripts": {
     "dev": "nodemon --watch assets/ --watch lib/ --ext css,js,svg --exec \"npm start\"",
-    "lint": "eslint --report-unused-disable-directives --ignore-path .gitignore .",
+    "lint": "npm-run-all --parallel --continue-on-error lint:*",
+    "lint:css": "stylelint \"{assets,scss}/*.{css,scss}\"",
+    "lint:js": "eslint --report-unused-disable-directives --ignore-path .gitignore .",
     "mocha": "mocha --require ./test/setup --exit",
-    "test": "npm run build && npm run lint && npm run mocha",
-    "build": "sass --style compressed --no-source-map --no-error-css scss/:assets/",
+    "test": "npm-run-all build lint mocha",
+    "build": "npm-run-all build:*",
+    "build:sass": "sass --style compressed --no-source-map --no-error-css scss/:assets/",
+    "build:prefix": "postcss --use autoprefixer --no-map --replace \"assets/*.css\" \"!assets/iframe-button.css\"",
     "start": "cross-env-shell node ./bin/slackin $SLACK_SUBDOMAIN $SLACK_API_TOKEN --coc \\\"$SLACKIN_COC\\\" --channels \\\"$SLACKIN_CHANNELS\\\"",
     "prepublishOnly": "npm run build"
   },
