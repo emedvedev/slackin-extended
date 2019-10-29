@@ -1,0 +1,73 @@
+@import "mixin";
+
+// While every color in the theme mixin is customizable,
+// we can build a theme from just a few.
+html.theme-light {
+  $foreground: #000;
+
+  $background: #fff;
+  $background-iframe: #fafafa;
+
+  $button-text: #fff;
+  $button-text-disabled: #999;
+
+  $accent: #e01563;
+  $success: #68c200;
+  $error: #f4001e;
+  $disabled: #ccc;
+
+  @include theme(
+    // $color-background:
+    $background,
+    // $iframe-background:
+    $background-iframe,
+    // $color-text:
+    $foreground,
+    // $color-plus-sign:
+    lighten($foreground, 80),
+    // $color-footer:
+    lighten($foreground, 80),
+    // $color-footer-link:
+    lighten($foreground, 60),
+    // $color-signin
+    $foreground,
+    // $color-signin-link:
+    $accent,
+    // $color-coc:
+    lighten($foreground, 40),
+    // $color-coc-link:
+    lighten($foreground, 40),
+    // $color-button-text:
+    $button-text,
+    // $color-button-background:
+    $accent,
+    // $color-button-success-text:
+    $button-text,
+    // $color-button-success-background:
+    $success,
+    // $color-button-error-text:
+    $button-text,
+    // $color-button-error-background:
+    $error,
+    // $color-button-pressed-text:
+    $button-text,
+    // $color-button-pressed-background:
+    darken($accent, 15),
+    // $color-button-disabled-text:
+    $button-text-disabled,
+    // $color-button-disabled-background:
+    $disabled,
+    // $color-users-active:
+    $accent,
+    // $color-users-total:
+    $foreground,
+    // $color-input-text:
+    lighten($foreground, 60),
+    // $color-input-border:
+    lighten($foreground, 80),
+    // $color-input-focused-text:
+    lighten($foreground, 40),
+    // $color-input-focused-border:
+    lighten($foreground, 60)
+  );
+}
