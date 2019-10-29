@@ -85,9 +85,9 @@ function update(val, n) {
 
 function anim(el, c) {
   if (el.anim) return
-  el.className = c + ' grow'
+  el.classList.add('grow')
   el.anim = setTimeout(function () {
-    el.className = c
+    el.classList.remove(c)
     el.anim = null
   }, 150)
 }
