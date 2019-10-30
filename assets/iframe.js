@@ -47,7 +47,7 @@
 
   // initialize realtime events asynchronously
   var script = document.createElement('script')
-  script.src = 'https://cdn.socket.io/socket.io-1.4.4.js'
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.slim.min.js'
   script.onload = function () {
     // use dom element for better cross browser compatibility
     var url = document.createElement('a')
