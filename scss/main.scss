@@ -6,14 +6,14 @@ body {
 
 html {
   font-size: 10px;
-  background: #fff;
+  background-color: #fff;
 
   &.large {
     font-size: 14px;
   }
 
   &.iframe {
-    background: #fafafa;
+    background-color: #fafafa;
 
     .splash {
       box-sizing: border-box;
@@ -183,12 +183,12 @@ button {
   color: #fff;
   font-weight: 700;
   border-width: 0;
-  background: #e01563;
+  background-color: #e01563;
   text-transform: uppercase;
   cursor: pointer;
   appearance: none;
   outline: 0;
-  transition: background-color 150ms ease-in, color 150ms ease-in;
+  transition: background-color .15s ease-in, color .15s ease-in;
 
   &.loading {
     pointer-events: none;
@@ -217,10 +217,10 @@ button {
 }
 
 b {
-  transition: transform 150ms ease-in;
+  transition: transform .15s ease-in;
 
   &.grow {
-    transform: scale(1.3);
+    transform: scale(1.2);
   }
 }
 
@@ -252,6 +252,11 @@ input:focus {
   color: #666;
   border-color: #999;
   outline: 0;
+}
+
+.active,
+.total {
+  display: inline-block;
 }
 
 .active {
@@ -343,10 +348,10 @@ footer {
   $color-input-focused-border
 ) {
   // Main:
-  background: $color-background;
+  background-color: $color-background;
   color: $color-text;
   &.iframe {
-    background: $iframe-background;
+    background-color: $iframe-background;
   }
   // Plus sign between the logos:
   .logo.org::after {
@@ -427,7 +432,6 @@ footer {
 }
 
 html.theme-light {
-
   // While every color in the theme mixin is customizable,
   // we can build a theme from just a few.
 
