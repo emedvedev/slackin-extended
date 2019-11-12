@@ -32,6 +32,7 @@ body {
   white-space: nowrap;
   cursor: pointer;
   border-radius: 3px;
+  transition: background-color 200ms ease-in;
 }
 .slack-btn {
   background-color: #eee;
@@ -89,6 +90,7 @@ body {
   content: "";
   border-color: transparent;
   border-style: solid;
+  transition: border-color 200ms ease-in;
 }
 .slack-count::before {
   top: 50%;
