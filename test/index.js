@@ -7,18 +7,22 @@ describe('slackin', () => {
     beforeEach(() => {
       nock('https://myorg.slack.com')
         .get('/api/users.list')
-        .query({ token: 'mytoken', presence: '1' })
+        .query({
+          token: 'mytoken', presence: '1', limit: 200, cursor: '',
+        })
         .reply(200, {
           ok: true,
           members: [{}],
+          response_metadata: { next_cursor: '' },
         });
 
       nock('https://myorg.slack.com')
         .get('/api/users.list')
-        .query({ token: 'mytoken' })
+        .query({ token: 'mytoken', limit: 200, cursor: '' })
         .reply(200, {
           ok: true,
           members: [{}],
+          response_metadata: { next_cursor: '' },
         });
 
       nock('https://myorg.slack.com')
