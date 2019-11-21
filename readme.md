@@ -21,7 +21,8 @@ Check out the [Demo](https://slackin-extended.now.sh/), which is deployed live f
 Set up [Now](https://zeit.co/now) on your device and run this command. [Now](https://zeit.co/now) will automatically ask you for the required information and then spin up a deployment instantly. That easy!
 
 ```bash
-now emedvedev/slackin-extended
+git clone https://github.com/emedvedev/slackin-extended.git
+now slackin-extended
 ```
 
 Other platforms:
