@@ -70,24 +70,28 @@ url.href = window.location
 // realtime updates
 var socket = io({ path: data.path + 'socket.io' })
 socket.on('data', function (users) {
-  for (var i in users) update(i, users[i])
+  for (var i in users) {
+    if (Object.prototype.hasOwnProperty.call(users, i)) {
+      update(i, users[i])
+    }
+  }
 })
 socket.on('total', function (n) { update('total', n) })
 socket.on('active', function (n) { update('active', n) })
 
 function update(val, n) {
   var el = document.querySelector('.' + val)
-  if (el && el.textContent != n) {
+  if (el && el.textContent !== n) {
     el.textContent = n
-    anim(el, val)
+    anim(el)
   }
 }
 
-function anim(el, c) {
+function anim(el) {
   if (el.anim) return
-  el.className = c + ' grow'
+  el.classList.add('grow')
   el.anim = setTimeout(function () {
-    el.className = c
+    el.classList.remove('grow')
     el.anim = null
   }, 150)
 }
@@ -112,8 +116,8 @@ window.addEventListener('message', function onmsg(e) {
   }
 })
 
-body.onload = function () {
+body.addEventListener('load', function () {
   if (window.location.hash) {
     body.querySelector('select[name=channel]').value = window.location.hash.slice(1)
   }
-}
+})

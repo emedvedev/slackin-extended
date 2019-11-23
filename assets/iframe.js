@@ -19,7 +19,7 @@
       id = e.data.replace(/^slackin:/, '')
       document.body.addEventListener('click', function (ev) {
         var el = ev.target
-        while (el && el.nodeName != 'A') el = el.parentNode
+        while (el && el.nodeName !== 'A') el = el.parentNode
         if (el && el.target === '_blank') {
           ev.preventDefault()
           window.parent.postMessage('slackin-click:' + id, '*')
@@ -36,7 +36,7 @@
   var button = document.querySelector('.slack-button')
   var lastWidth
   function refresh() {
-    if (window != window.top && window.postMessage) {
+    if (window !== window.top && window.postMessage) {
       var width = Math.ceil(button.getBoundingClientRect().width)
       if (lastWidth !== width) {
         lastWidth = width
@@ -48,7 +48,7 @@
   // initialize realtime events asynchronously
   var script = document.createElement('script')
   script.src = 'https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.slim.min.js'
-  script.onload = function () {
+  script.addEventListener('load', function () {
     // use dom element for better cross browser compatibility
     var url = document.createElement('a')
     url.href = window.location
@@ -56,14 +56,18 @@
     var count = document.querySelector('.slack-count')
 
     socket.on('data', function (users) {
-      for (var i in users) update(i, users[i])
+      for (var i in users) {
+        if (Object.prototype.hasOwnProperty.call(users, i)) {
+          update(i, users[i])
+        }
+      }
     })
     socket.on('total', function (n) { update('total', n) })
     socket.on('active', function (n) { update('active', n) })
 
     var anim
     function update(key, n) {
-      if (data[key] != n) {
+      if (data[key] !== n) {
         data[key] = n
         var str = ''
         if (data.active) str = data.active + '/'
@@ -71,13 +75,13 @@
         if (!str.length) str = '–'
         if (anim) clearTimeout(anim)
         count.textContent = str
-        count.className = 'slack-count anim'
+        count.classList.add('anim')
         anim = setTimeout(function () {
-          count.className = 'slack-count'
+          count.classList.remove('anim')
         }, 200)
         refresh()
       }
     }
-  }
+  })
   document.body.appendChild(script)
 }())
