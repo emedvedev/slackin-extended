@@ -83,15 +83,15 @@ function update(val, n) {
   var el = document.querySelector('.' + val)
   if (el && el.textContent !== n) {
     el.textContent = n
-    anim(el, val)
+    anim(el)
   }
 }
 
-function anim(el, c) {
+function anim(el) {
   if (el.anim) return
-  el.className = c + ' grow'
+  el.classList.add('grow')
   el.anim = setTimeout(function () {
-    el.className = c
+    el.classList.remove('grow')
     el.anim = null
   }, 150)
 }

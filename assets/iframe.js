@@ -75,9 +75,9 @@
         if (!str.length) str = '–'
         if (anim) clearTimeout(anim)
         count.textContent = str
-        count.className = 'slack-count anim'
+        count.classList.add('anim')
         anim = setTimeout(function () {
-          count.className = 'slack-count'
+          count.classList.remove('anim')
         }, 200)
         refresh()
       }
