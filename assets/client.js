@@ -87,7 +87,7 @@ function anim(el, c) {
   if (el.anim) return
   el.classList.add('grow')
   el.anim = setTimeout(function () {
-    el.classList.remove(c)
+    el.classList.remove('grow')
     el.anim = null
   }, 150)
 }
