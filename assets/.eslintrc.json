@@ -2,18 +2,22 @@
   "root": true,
   "extends": "eslint-config-airbnb-base/legacy",
   "rules": {
-    "camelcase": "off",
+    "camelcase": [
+      "error",
+      {
+        "allow": [
+          "^gcaptcha_"
+        ]
+      }
+    ],
     "consistent-return": "off",
-    "eqeqeq": "off",
     "func-names": "off",
-    "guard-for-in": "off",
     "max-len": "off",
     "no-bitwise": "off",
     "no-continue": "off",
     "no-multi-assign": "off",
     "no-param-reassign": "off",
     "no-plusplus": "off",
-    "no-prototype-builtins": "off",
     "no-restricted-syntax": "off",
     "no-shadow": "off",
     "no-use-before-define": "off",
