@@ -1,0 +1,83 @@
+@import "mixin";
+
+// An example of a dark theme, where
+// the accents are darker, not lighter.
+html.theme-dark {
+  $foreground: #eee;
+
+  $background: #25292c;
+  $background-iframe: #25292c;
+
+  $button-text: #eee;
+  $button-text-disabled: #666;
+
+  $accent: darken(#e01563, 15);
+  $success: darken(#68c200, 15);
+  $error: darken(#f4001e, 15);
+  $disabled: darken(#ccc, 15);
+
+  // The Slack logo has to have white background,
+  // so we'll add it since the main background
+  // isn't white.
+  .logos.slack {
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 3px solid #fff;
+  }
+
+  @include theme(
+    // $color-background:
+    $background,
+    // $iframe-background:
+    $background-iframe,
+    // $color-text:
+    $foreground,
+    // $color-plus-sign:
+    darken($foreground, 60),
+    // $color-footer:
+    darken($foreground, 60),
+    // $color-footer-link:
+    darken($foreground, 40),
+    // $color-signin:
+    darken($foreground, 20),
+    // $color-signin-link:
+    $accent,
+    // $color-coc:
+    darken($foreground, 20),
+    // $color-coc-link:
+    darken($foreground, 20),
+    // $color-button-text:
+    $button-text,
+    // $color-button-background:
+    $accent,
+    // $color-button-success-text:
+    $button-text,
+    // $color-button-success-background:
+    $success,
+    // $color-button-error-text:
+    $button-text,
+    // $color-button-error-background:
+    $error,
+    // $color-button-pressed-text:
+    $button-text,
+    // $color-button-pressed-background:
+    darken($accent, 10),
+    // $color-button-disabled-text:
+    $button-text-disabled,
+    // $color-button-disabled-background:
+    $disabled,
+    // $color-users-active:
+    $accent,
+    // $color-users-total:
+    $foreground,
+    // $color-input-text:
+    darken($foreground, 40),
+    // $color-input-border:
+    darken($foreground, 60),
+    // $color-input-focused-text:
+    darken($foreground, 20),
+    // $color-input-focused-border:
+    darken($foreground, 40)
+  );
+}
