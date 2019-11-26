@@ -60,15 +60,7 @@ body {
 }
 
 .logo {
-  width: 4.8rem;
-  height: 4.8rem;
   display: inline-block;
-  background-size: cover;
-
-  &.slack {
-    background-image: url("slack.svg");
-  }
-
   &.org {
     margin-right: 7rem;
     border-radius: .56em;
