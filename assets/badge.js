@@ -112,11 +112,11 @@
     var div = document.createElement('div')
     div.className = '__slackin'
     div.style.fontSize = unitSize
-    div.style.border = '.1em solid #D6D6D6'
+    div.style.border = '.1em solid #d6d6d6'
     div.style.padding = '0'
     div.style.margin = '0'
     div.style.lineHeight = '0'
-    div.style.backgroundColor = '#FAFAFA'
+    div.style.backgroundColor = '#fafafa'
     div.style.width = '25em'
     div.style.height = '15.5em'
     div.style.position = 'absolute'
