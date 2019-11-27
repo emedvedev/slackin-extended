@@ -63,7 +63,10 @@ body {
   display: inline-block;
   &.org {
     margin-right: 7rem;
-    border-radius: .56em;
+    
+    img {
+      border-radius: .56em;
+    }
 
     &::after {
       position: absolute;
