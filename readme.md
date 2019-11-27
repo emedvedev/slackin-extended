@@ -90,6 +90,14 @@ Every CLI parameter, including mandatory arguments (workspace ID and token), can
 | | | `SLACKIN_HTTPS_REDIRECT` | `''` | If a domain name is specified in this parameter and `SLACKIN_PROXY` is set to `true`, Slackin will redirect requests with `x-forwarded-proto === 'http'` to `https://<SLACKIN_HTTPS_REDIRECT>/<original URL>` |
 | | | `SLACKIN_LETSENCRYPT` | `''` | [Let's Encrypt](https://letsencrypt.org/) challenge response |
 
+Alternatively, you can specify the configuration parameters in a [dotenv file](https://github.com/motdotla/dotenv): create a `.env` file in the root directory of your project and add environment-specific variables on new lines in the form of NAME=VALUE. For example:
+
+```
+SLACK_SUBDOMAIN=mysubdomain
+SLACK_API_TOKEN=SLACK-API-TOKEN
+SLACKIN_THEME=dark
+```
+
 ## Extras
 
 ### Tips and tricks
