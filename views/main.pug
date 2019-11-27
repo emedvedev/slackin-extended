@@ -18,7 +18,6 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
         | html .splash p.signin a:hover { background-color: #{theme.accent}; }
         | html .splash button { background-color: #{theme.accent}; }
         | html .splash button:not(.disabled):active { background-color: #{theme.accentDark}; }
-        | .logo.org { background-image: url("#{logo}"); }
 
     if analytics
       script(async, src=`https://www.googletagmanager.com/gtag/js?id={gaID}`)
@@ -35,7 +34,9 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
         .logos
           if logo
             .logo.org
+              img(src=logo, alt=`${name}'s logo`, width='48', height='48')
           .logo.slack
+            img(src=`${path}assets/slack.svg`, alt='Slack\'s logo', width='48', height='48')
 
       if channels && channels.length === 1
         p Join #[b= name] #[span ##{channels[0]}] on Slack.
