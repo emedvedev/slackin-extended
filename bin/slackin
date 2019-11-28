@@ -5,7 +5,7 @@ const hostenv = require('hostenv');
 const dbg = require('debug');
 const slackin = require('../lib');
 
-require('dotenv').config()
+require('dotenv').config();
 
 const mainLog = dbg('slackin:main');
 
