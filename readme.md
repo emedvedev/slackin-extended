@@ -18,10 +18,12 @@ Check out the [Demo](https://slackin-extended.now.sh/), which is deployed live f
 
 ## Usage
 
-Set up [Now](https://zeit.co/now) on your device and run this command. [Now](https://zeit.co/now) will automatically ask you for the required information and then spin up a deployment instantly. That easy!
+Set up [Now](https://zeit.co/now) on your device and run it! If you don't have an `.env` file for your Now deployment (see [environment variables and secrets](https://zeit.co/docs/v2/environment-variables-and-secrets#accessing-environment-variables)), you can just set the two required parameters through `now secrets`:
 
 ```bash
 git clone https://github.com/emedvedev/slackin-extended.git
+now secrets add @slack-subdomain "myslack"
+now secrets add @slack-api-token "xoxb-YOUR-SLACK-TOKEN"
 now slackin-extended
 ```
 
