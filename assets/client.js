@@ -52,15 +52,18 @@ function invite(chan, coc, email, gcaptcha_response_value, fn) {
       email: email
     })
     .end(function (res) {
-      if (res.body.redirectUrl) {
+      if (res && res.response) {
+        res = res.response
+      }
+      if (res && res.body && res.body.redirectUrl) {
         window.setTimeout(function () {
           topLevelRedirect(res.body.redirectUrl)
         }, 1500)
       }
-      if (res.error) {
+      if (res && res.error) {
         return fn(new Error(res.body.msg || 'Server error'))
       }
-      fn(null, res.body.msg)
+      fn(null, 'Invite sent')
     })
 }
 
