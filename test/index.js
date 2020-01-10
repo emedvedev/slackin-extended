@@ -7,22 +7,26 @@ describe('slackin', () => {
     beforeEach(() => {
       nock('https://myorg.slack.com')
         .get('/api/users.list')
-        .query({ token: 'mytoken', presence: '1' })
+        .query({
+          token: 'mytoken', presence: '1', limit: 800, cursor: '',
+        })
         .reply(200, {
           ok: true,
           members: [{}],
+          response_metadata: { next_cursor: '' },
         });
 
       nock('https://myorg.slack.com')
         .get('/api/users.list')
-        .query({ token: 'mytoken' })
+        .query({ token: 'mytoken', limit: 800, cursor: '' })
         .reply(200, {
           ok: true,
           members: [{}],
+          response_metadata: { next_cursor: '' },
         });
 
       nock('https://myorg.slack.com')
-        .get('/api/channels.list?token=mytoken')
+        .get('/api/conversations.list?token=mytoken')
         .reply(200, {
           ok: true,
           channels: [{}],
@@ -53,7 +57,10 @@ describe('slackin', () => {
         .post('/invite')
         .send({ email: 'foo@example.com' })
         .expect('Content-Type', /json/)
-        .expect(200, { msg: 'WOOT. Check your email!' })
+        .expect(200, {
+          msg: 'WOOT. Check your email!',
+          redirectUrl: 'https://myorg.slack.com/',
+        })
         .end(done);
     });
 
@@ -77,7 +84,10 @@ describe('slackin', () => {
         .post('/invite')
         .send({ email: 'foo@example.com' })
         .expect('Content-Type', /json/)
-        .expect(400, { msg: 'other error' })
+        .expect(400, {
+          msg: 'other error',
+          redirectUrl: 'https://myorg.slack.com/',
+        })
         .end(done);
     });
   });
