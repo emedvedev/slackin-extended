@@ -57,9 +57,9 @@ describe('slackin', () => {
         .post('/invite')
         .send({ email: 'foo@example.com' })
         .expect('Content-Type', /json/)
-        .expect(200, { 
+        .expect(200, {
           msg: 'WOOT. Check your email!',
-          redirectUrl: 'https://myorg.slack.com/'
+          redirectUrl: 'https://myorg.slack.com/',
         })
         .end(done);
     });
@@ -84,9 +84,9 @@ describe('slackin', () => {
         .post('/invite')
         .send({ email: 'foo@example.com' })
         .expect('Content-Type', /json/)
-        .expect(400, { 
+        .expect(400, {
           msg: 'other error',
-          redirectUrl: 'https://myorg.slack.com/'
+          redirectUrl: 'https://myorg.slack.com/',
         })
         .end(done);
     });
