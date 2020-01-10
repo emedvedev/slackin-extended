@@ -88,6 +88,7 @@ Every CLI parameter, including mandatory arguments (workspace ID and token), can
 | --accent | -A | `SLACKIN_ACCENT` | `#e01563` for `light`, `#9a0e44` for `dark` | Accent color to use instead of a theme default |
 | --coc | -C | `SLACKIN_COC` | `''` | Full URL to a CoC that needs to be agreed to |
 | --css | -S | `SLACKIN_CSS` | `''` | Full URL to a custom CSS file to use on the main page |
+| | | `SLACKIN_PAGE_DELAY` | `0` | Delay (ms) between Slack API requests (may be required for large workspaces that hit the rate limit) |
 | | | `SLACKIN_PROXY` | `false` | Trust proxy headers (only use if Slackin is served behind a reverse proxy) |
 | | | `SLACKIN_HTTPS_REDIRECT` | `''` | If a domain name is specified in this parameter and `SLACKIN_PROXY` is set to `true`, Slackin will redirect requests with `x-forwarded-proto === 'http'` to `https://<SLACKIN_HTTPS_REDIRECT>/<original URL>` |
 | | | `SLACKIN_LETSENCRYPT` | `''` | [Let's Encrypt](https://letsencrypt.org/) challenge response |
