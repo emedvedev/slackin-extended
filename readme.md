@@ -16,7 +16,13 @@ Check out the [Demo](https://slackin-extended.now.sh/), which is deployed live f
 
 **Disclaimer:** this project is not affiliated with Slack. The Slack logo and Slack API are copyright Slack Technologies, Inc.
 
-## Usage
+## Installation
+
+### Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+### Now
 
 Set up [Now](https://zeit.co/now) on your device and run it! If you don't have an `.env` file for your Now deployment (see [environment variables and secrets](https://zeit.co/docs/v2/environment-variables-and-secrets#accessing-environment-variables)), you can just set the two required parameters through `now secrets`:
 
@@ -27,14 +33,11 @@ now secrets add @slack-api-token "xoxb-YOUR-SLACK-TOKEN"
 now slackin-extended
 ```
 
-Other platforms:
+### Docker
 
-- [Heroku](https://heroku.com/deploy?template=https://github.com/emedvedev/slackin-extended/tree/master)
-- [Azure](https://azuredeploy.net/)
-- [OpenShift](https://github.com/rauchg/slackin/wiki/OpenShift)
-- [IBM Bluemix](https://bluemix.net/deploy?repository=https://github.com/emedvedev/slackin-extended)
+The Docker container is available on Docker Hub: [emedvedev/slackin-extended](https://hub.docker.com/r/emedvedev/slackin-extended/).
 
-A Docker container is available on Docker Hub: [emedvedev/slackin-extended](https://hub.docker.com/r/emedvedev/slackin-extended/).
+### npm
 
 To host Slackin-extended yourself, install it via `npm` and launch it on your server:
 
@@ -42,6 +45,8 @@ To host Slackin-extended yourself, install it via `npm` and launch it on your se
 npm install -g slackin-extended
 slackin "workspace-id" "your-slack-token"
 ```
+
+## Usage
 
 ### Badges
 
