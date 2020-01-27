@@ -20,7 +20,7 @@
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
-    "cross-env": "^6.0.3",
+    "cross-env": "^7.0.0",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "email-regex": "^4.0.0",
