@@ -43,8 +43,8 @@
     "mocha": "^7.0.1",
     "nock": "^11.7.2",
     "nodemon": "^2.0.2",
-    "stylelint": "^12.0.1",
-    "stylelint-config-twbs-bootstrap": "^1.1.0",
+    "stylelint": "^13.0.0",
+    "stylelint-config-twbs-bootstrap": "^2.0.0",
     "supertest": "^4.0.2"
   },
   "engines": {
