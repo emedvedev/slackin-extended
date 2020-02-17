@@ -41,7 +41,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
     "mocha": "^7.0.1",
-    "nock": "^11.8.2",
+    "nock": "^12.0.0",
     "nodemon": "^2.0.2",
     "stylelint": "^13.2.0",
     "stylelint-config-twbs-bootstrap": "^2.0.0",
