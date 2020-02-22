@@ -45,6 +45,7 @@ body {
   .splash {
     margin-top: 10rem;
   }
+
   html.iframe .splash {
     margin-top: 0;
   }
@@ -61,6 +62,7 @@ body {
 
 .logo {
   display: inline-block;
+
   &.org {
     margin-right: 7rem;
 
@@ -300,6 +302,7 @@ footer {
   left: -36px;
   top: -3px;
 }
+
 .iframe.large .g-recaptcha {
   width: auto;
   transform: scale(1.065);
@@ -307,6 +310,7 @@ footer {
   left: 11px;
   top: -4px;
 }
+
 // stylelint-disable-next-line selector-max-id
 #h-captcha {
   display: none;

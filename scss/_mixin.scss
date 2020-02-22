@@ -29,79 +29,99 @@
   // Main:
   background-color: $color-background;
   color: $color-text;
+
   &.iframe {
     background-color: $iframe-background;
   }
+
   // Plus sign between the logos:
   .logo.org::after {
     color: $color-plus-sign;
   }
+
   // Code of conduct:
   .coc {
     color: $color-coc;
+
     a {
       color: $color-coc-link;
+
       &:hover {
         background-color: $color-coc-link;
         color: $color-background;
       }
     }
   }
+
   // Button:
   button {
     color: $color-button-text;
     background-color: $color-button-background;
+
     &.error {
       color: $color-button-error-text;
       background-color: $color-button-error-background;
     }
+
     &.success {
       color: $color-button-success-text;
       background-color: $color-button-success-background;
     }
+
     &:disabled {
       color: $color-button-disabled-text;
       background-color: $color-button-disabled-background;
     }
+
     &:not(.disabled):active {
       color: $color-button-pressed-text;
       background-color: $color-button-pressed-background;
     }
   }
+
   // Input:
   input {
     color: $color-input-text;
     border-color: $color-input-border;
   }
+
   input:focus {
     color: $color-input-focused-text;
     border-color: $color-input-focused-border;
     outline: 0;
   }
+
   // Active users:
   .active {
     color: $color-users-active;
   }
+
   .total {
     color: $color-users-total;
   }
+
   // Signin link:
   p.signin {
     color: $color-signin;
+
     a {
       color: $color-signin-link;
+
       &:hover {
         background-color: $color-signin-link;
         color: $color-background;
       }
     }
   }
+
   // Footer:
   footer {
     color: $color-footer;
+
     a {
       color: $color-footer-link;
       border-bottom-color: $color-footer-link;
+
       &:hover {
         color: $color-background;
         background-color: $color-footer-link;
