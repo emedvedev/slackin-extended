@@ -94,7 +94,6 @@ body {
   input {
     appearance: none;
     border: none;
-    vertical-align: middle;
     margin: 0 .5rem 0 0;
 
     &::after {
@@ -159,7 +158,6 @@ button,
 .form-item {
   font-size: 1.2rem;
   margin-top: 1rem;
-  vertical-align: middle;
   display: block;
   text-align: center;
   box-sizing: border-box;
