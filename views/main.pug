@@ -39,14 +39,14 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
             img(src=`${path}assets/slack.svg`, alt='Slack\'s logo', width='48', height='48')
 
       if channels && channels.length === 1
-        p Join #[b= name] #[span ##{channels[0]}] on Slack.
+        p Join #[strong= name] #[span ##{channels[0]}] on Slack.
       else
-        p Join #[b= name] on Slack.
+        p Join #[strong= name] on Slack.
 
       if active
-        p.status #[b.active= active] users online now of #[b.total= total] registered.
+        p.status #[strong.active= active] users online now of #[strong.total= total] registered.
       else
-        p.status #[b.total= total] users are registered so far.
+        p.status #[strong.total= total] users are registered so far.
 
       form#invite
 
