@@ -6,6 +6,7 @@ body {
 }
 
 html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 10px;
   background-color: #fff;
 
@@ -38,7 +39,6 @@ body {
 .splash {
   width: 30rem;
   text-align: center;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (max-width: 50rem) {
@@ -78,7 +78,6 @@ body {
       text-align: center;
       color: #d6d6d6;
       font-size: 1.5rem;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
   }
 }
