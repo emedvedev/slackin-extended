@@ -37,15 +37,13 @@
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.20.1",
     "mocha": "^7.0.1",
     "nock": "^12.0.1",
     "nodemon": "^2.0.2",
     "stylelint": "^13.2.0",
     "stylelint-config-twbs-bootstrap": "^2.0.1",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "xo": "^0.26.1"
   },
   "engines": {
     "node": "10.x"
@@ -54,7 +52,7 @@
     "dev": "nodemon --watch assets/ --watch lib/ --watch scss/ --ext js,scss,svg --exec \"npm-run-all build start\"",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
     "lint:css": "stylelint \"{assets,scss}/*.{css,scss}\"",
-    "lint:js": "eslint --cache --cache-location node_modules/.cache/.eslintcache --report-unused-disable-directives --ignore-path .gitignore .",
+    "lint:js": "xo",
     "mocha": "mocha --require ./test/setup --exit",
     "test": "npm-run-all build lint mocha",
     "build": "npm-run-all build:*",
@@ -64,8 +62,64 @@
     "start": "cross-env-shell node ./bin/slackin $SLACK_SUBDOMAIN $SLACK_API_TOKEN --coc \\\"$SLACKIN_COC\\\" --channels \\\"$SLACKIN_CHANNELS\\\"",
     "prepublishOnly": "npm run build"
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": "airbnb-base"
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "arrow-parens": [
+        "error",
+        "always"
+      ],
+      "camelcase": "off",
+      "capitalized-comments": "off",
+      "comma-dangle": "off",
+      "curly": [
+        "error",
+        "multi-line"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "operator-linebreak": [
+        "error",
+        "before"
+      ],
+      "spaced-comment": "off",
+      "unicorn/explicit-length-check": "off",
+      "wrap-iife": [
+        "error",
+        "outside"
+      ]
+    },
+    "overrides": [
+      {
+        "files": "test/*.js",
+        "envs": [
+          "mocha"
+        ]
+      },
+      {
+        "files": "assets/*.js",
+        "parserOptions": {
+          "ecmaVersion": 3,
+          "sourceType": "script"
+        },
+        "esnext": false,
+        "envs": [
+          "browser"
+        ],
+        "rules": {
+          "no-multi-assign": "off",
+          "semi": "off",
+          "prefer-named-capture-group": "off",
+          "unicorn/no-for-loop": "off",
+          "unicorn/prefer-modern-dom-apis": "off",
+          "unicorn/prefer-node-append": "off",
+          "unicorn/prefer-query-selector": "off",
+          "unicorn/prefer-starts-ends-with": "off"
+        }
+      }
+    ]
   }
 }
