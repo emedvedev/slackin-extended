@@ -1,5 +1,4 @@
 {
-  "name": "slackin-extended",
   "version": 2,
   "env": {
     "SLACK_SUBDOMAIN": "@slack-subdomain",
