@@ -28,8 +28,8 @@ Set up [Now](https://zeit.co/now) on your device and run it! If you don't have a
 
 ```bash
 git clone https://github.com/emedvedev/slackin-extended.git
-now secrets add @slack-subdomain "myslack"
-now secrets add @slack-api-token "xoxb-YOUR-SLACK-TOKEN"
+now secrets add slack-subdomain "myslack"
+now secrets add slack-api-token "xoxb-YOUR-SLACK-TOKEN"
 now slackin-extended
 ```
 
