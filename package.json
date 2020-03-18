@@ -43,7 +43,7 @@
     "stylelint": "^13.2.1",
     "stylelint-config-twbs-bootstrap": "^2.0.1",
     "supertest": "^4.0.2",
-    "xo": "^0.26.1"
+    "xo": "^0.28.0"
   },
   "engines": {
     "node": "10.x"
@@ -87,6 +87,8 @@
       ],
       "spaced-comment": "off",
       "unicorn/explicit-length-check": "off",
+      "unicorn/prevent-abbreviations": "off",
+      "unicorn/string-content": "off",
       "wrap-iife": [
         "error",
         "outside"
@@ -116,6 +118,7 @@
           "unicorn/no-for-loop": "off",
           "unicorn/prefer-modern-dom-apis": "off",
           "unicorn/prefer-node-append": "off",
+          "unicorn/prefer-node-remove": "off",
           "unicorn/prefer-query-selector": "off",
           "unicorn/prefer-starts-ends-with": "off"
         }
