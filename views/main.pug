@@ -20,12 +20,12 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
         | html .splash button:not(.disabled):active { background-color: #{theme.accentDark}; }
 
     if analytics
-      script(async, src=`https://www.googletagmanager.com/gtag/js?id={gaID}`)
-      script
-      | window.dataLayer = window.dataLayer || [];
-      | function gtag(){dataLayer.push(arguments);}
-      | gtag('js', new Date());
-      | gtag('config', '#{analytics}');
+      script(async, src=`https://www.googletagmanager.com/gtag/js?id=${analytics}`)
+      script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '#{analytics}');
   body
 
     .splash
