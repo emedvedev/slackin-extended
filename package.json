@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "args": "^5.0.1",
-    "autoprefixer": "^9.7.5",
+    "autoprefixer": "^9.7.6",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
@@ -41,10 +41,10 @@
     "mocha": "^7.1.1",
     "nock": "^12.0.3",
     "nodemon": "^2.0.2",
-    "stylelint": "^13.2.1",
+    "stylelint": "^13.3.0",
     "stylelint-config-twbs-bootstrap": "^2.0.1",
     "supertest": "^4.0.2",
-    "xo": "^0.28.2"
+    "xo": "^0.29.0"
   },
   "engines": {
     "node": "10.x"
