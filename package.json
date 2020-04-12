@@ -12,7 +12,8 @@
     "assets/*.{css,js,svg,png,ico}",
     "bin/slackin",
     "lib/*.js",
-    "views/*.pug"
+    "views/*.pug",
+    "locales/*.json"
   ],
   "dependencies": {
     "args": "^5.0.1",
@@ -26,6 +27,7 @@
     "email-regex": "^4.0.0",
     "express": "^4.17.1",
     "hostenv": "^2.3.0",
+    "i18n": "^0.8.6",
     "micromatch": "^4.0.2",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^7.1.0",
