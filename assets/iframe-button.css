@@ -1,6 +1,6 @@
 /*
   CSS from: https://github.com/mdo/github-buttons
-  Copyright 2014-2015 Mark Otto. Released under Apache 2.0.
+  Copyright 2014-2020 Mark Otto. Released under Apache 2.0.
 */
 
 body,
@@ -12,7 +12,10 @@ body {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  font: 700 11px/14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 14px;
 }
 .slack-button {
   height: 20px;
@@ -32,15 +35,11 @@ body {
   white-space: nowrap;
   cursor: pointer;
   border-radius: 3px;
-  transition: background-color 200ms ease-in;
+  transition: background-color .2s ease-in;
 }
 .slack-btn {
   background-color: #eee;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fcfcfc), color-stop(100%, #eee));
-  background-image: -webkit-linear-gradient(top, #fcfcfc 0, #eee 100%);
-  background-image: -moz-linear-gradient(top, #fcfcfc 0, #eee 100%);
-  background-image: -ms-linear-gradient(top, #fcfcfc 0, #eee 100%);
-  background-image: -o-linear-gradient(top, #fcfcfc 0, #eee 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fcfcfc), to(#eee));
   background-image: linear-gradient(to bottom, #fcfcfc 0, #eee 100%);
   background-repeat: no-repeat;
   border: 1px solid #d5d5d5;
@@ -49,11 +48,7 @@ body {
 .slack-btn:focus {
   text-decoration: none;
   background-color: #ddd;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eee), color-stop(100%, #ddd));
-  background-image: -webkit-linear-gradient(top, #eee 0, #ddd 100%);
-  background-image: -moz-linear-gradient(top, #eee 0, #ddd 100%);
-  background-image: -ms-linear-gradient(top, #eee 0, #ddd 100%);
-  background-image: -o-linear-gradient(top, #eee 0, #ddd 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eee), to(#ddd));
   background-image: linear-gradient(to bottom, #eee 0, #ddd 100%);
   border-color: #ccc;
 }
@@ -79,7 +74,7 @@ body {
 }
 .slack-count:hover,
 .slack-count:focus {
-  color: #4183c4;
+  color: #0366d6;
 }
 .slack-count::before,
 .slack-count::after {
@@ -90,7 +85,7 @@ body {
   content: "";
   border-color: transparent;
   border-style: solid;
-  transition: border-color 200ms ease-in;
+  transition: border-color .2s ease-in;
 }
 .slack-count::before {
   top: 50%;
