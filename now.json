@@ -14,13 +14,13 @@
       "config": { "distDir": "assets" }
     },
     {
-      "src": "bin/slackin",
+      "src": "bin/slackin.js",
       "use": "@now/node-server"
     }
   ],
   "routes": [
     { "src": "/assets/(.*)", "dest": "$1" },
     { "src": "/slackin.js", "dest": "badge.js" },
-    { "src": "/(.*)", "dest": "bin/slackin" }
+    { "src": "/(.*)", "dest": "bin/slackin.js" }
   ]
 }
