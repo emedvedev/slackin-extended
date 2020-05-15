@@ -97,16 +97,8 @@
   function showDialog(iframe) {
     if (showing) return
     showing = true
-    var unitSize
-    var arrowHeight
-
-    if (LARGE) {
-      unitSize = '14px'
-      arrowHeight = 13
-    } else {
-      unitSize = '10px'
-      arrowHeight = 9
-    }
+    var unitSize = LARGE ? '14px' : '10px'
+    var arrowHeight = LARGE ? 13 : 9
 
     // container div
     var div = document.createElement('div')
