@@ -25,7 +25,7 @@
     "dotenv": "^8.2.0",
     "email-regex": "^4.0.0",
     "express": "^4.17.1",
-    "hostenv": "^2.3.0",
+    "hostenv": "^3.3.0",
     "micromatch": "^4.0.2",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^7.1.1",
