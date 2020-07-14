@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "mocha": "^8.0.1",
-    "nock": "^12.0.3",
+    "nock": "^13.0.2",
     "nodemon": "^2.0.4",
     "stylelint": "^13.6.1",
     "stylelint-config-twbs-bootstrap": "^2.0.3",
