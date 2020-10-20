@@ -43,7 +43,7 @@
     "nodemon": "^2.0.4",
     "stylelint": "^13.7.1",
     "stylelint-config-twbs-bootstrap": "^2.0.3",
-    "supertest": "^4.0.2",
+    "supertest": "^5.0.0",
     "xo": "^0.32.0"
   },
   "engines": {
