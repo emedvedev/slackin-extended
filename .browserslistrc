@@ -1,6 +1,6 @@
 # https://github.com/browserslist/browserslist#readme
 
->= 0.2%
+>= 0.5%
 last 2 major versions
 not dead
 Firefox ESR
