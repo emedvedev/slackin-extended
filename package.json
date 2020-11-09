@@ -41,7 +41,7 @@
     "tinycolor2": "^1.4.2"
   },
   "devDependencies": {
-    "mocha": "^8.2.0",
+    "mocha": "^8.2.1",
     "nock": "^13.0.4",
     "nodemon": "^2.0.6",
     "stylelint": "^13.7.2",
