@@ -97,7 +97,7 @@ if (flags.help || !org || !token) {
 }
 
 const availableLocales = ['en', 'es'];
-const localeToSet = availableLocales.find(l => l === flags.locale);
+const localeToSet = availableLocales.find((l) => l === flags.locale);
 flags.locale = localeToSet ? localeToSet : 'en';
 
 // Group the reCAPTCHA settings
@@ -114,7 +114,7 @@ flags.redirectFQDN = process.env.SLACKIN_HTTPS_REDIRECT;
 flags.letsencrypt = process.env.SLACKIN_LETSENCRYPT;
 
 const { port, hostname } = flags;
-slackin({availableLocales, ...flags}).listen(port, hostname, (err) => {
+slackin({ availableLocales, ...flags }).listen(port, hostname, (err) => {
   if (err) throw err;
   if (!flags.silent) mainLog.enabled = true;
   mainLog('Listening on %s:%d', hostname, port);
