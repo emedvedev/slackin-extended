@@ -4,4 +4,4 @@ WORKDIR /srv/www
 RUN npm install --unsafe-perm
 RUN npm run build
 
-CMD ./bin/slackin
+CMD ./bin/slackin.js
