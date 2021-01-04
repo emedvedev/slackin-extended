@@ -30,7 +30,7 @@
     "micromatch": "^4.0.2",
     "morgan": "^1.10.0",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.2.1",
+    "postcss": "^8.2.2",
     "postcss-cli": "^8.3.1",
     "pug": "^3.0.0",
     "resolve-pkg": "^2.0.0",
