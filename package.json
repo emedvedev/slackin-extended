@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "args": "^5.0.1",
-    "autoprefixer": "^10.1.0",
+    "autoprefixer": "^10.2.3",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
