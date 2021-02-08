@@ -34,7 +34,7 @@
     "postcss-cli": "^8.3.1",
     "pug": "^3.0.0",
     "resolve-pkg": "^2.0.0",
-    "sass": "^1.30.0",
+    "sass": "^1.32.6",
     "serve-favicon": "^2.5.0",
     "socket.io": "^2.3.0",
     "superagent": "^3.8.3",
