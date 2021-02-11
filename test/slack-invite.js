@@ -1,3 +1,5 @@
+'use strict';
+
 const assert = require('assert');
 const nock = require('nock');
 const invite = require('../lib/slack-invite');
