@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "args": "^5.0.1",
-    "autoprefixer": "^10.1.0",
+    "autoprefixer": "^10.2.4",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
@@ -30,11 +30,11 @@
     "micromatch": "^4.0.2",
     "morgan": "^1.10.0",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.2.1",
+    "postcss": "^8.2.6",
     "postcss-cli": "^8.3.1",
     "pug": "^3.0.0",
     "resolve-pkg": "^2.0.0",
-    "sass": "^1.30.0",
+    "sass": "^1.32.7",
     "serve-favicon": "^2.5.0",
     "socket.io": "^2.3.0",
     "superagent": "^3.8.3",
@@ -42,12 +42,12 @@
   },
   "devDependencies": {
     "mocha": "^8.2.1",
-    "nock": "^13.0.5",
-    "nodemon": "^2.0.6",
-    "stylelint": "^13.8.0",
+    "nock": "^13.0.7",
+    "nodemon": "^2.0.7",
+    "stylelint": "^13.9.0",
     "stylelint-config-twbs-bootstrap": "^2.1.0",
-    "supertest": "^6.0.1",
-    "xo": "^0.36.1"
+    "supertest": "^6.1.3",
+    "xo": "^0.37.1"
   },
   "engines": {
     "node": "10.x"
@@ -92,7 +92,6 @@
       "spaced-comment": "off",
       "unicorn/explicit-length-check": "off",
       "unicorn/prevent-abbreviations": "off",
-      "unicorn/string-content": "off",
       "wrap-iife": [
         "error",
         "outside"
@@ -118,14 +117,13 @@
         "rules": {
           "no-multi-assign": "off",
           "semi": "off",
-          "prefer-named-capture-group": "off",
           "unicorn/no-for-loop": "off",
+          "unicorn/prefer-dom-node-append": "off",
+          "unicorn/prefer-dom-node-remove": "off",
           "unicorn/prefer-math-trunc": "off",
           "unicorn/prefer-modern-dom-apis": "off",
-          "unicorn/prefer-node-append": "off",
-          "unicorn/prefer-node-remove": "off",
           "unicorn/prefer-query-selector": "off",
-          "unicorn/prefer-starts-ends-with": "off"
+          "unicorn/prefer-string-starts-ends-with": "off"
         }
       }
     ]
