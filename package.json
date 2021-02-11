@@ -92,7 +92,6 @@
       "spaced-comment": "off",
       "unicorn/explicit-length-check": "off",
       "unicorn/prevent-abbreviations": "off",
-      "unicorn/string-content": "off",
       "wrap-iife": [
         "error",
         "outside"
@@ -118,7 +117,6 @@
         "rules": {
           "no-multi-assign": "off",
           "semi": "off",
-          "prefer-named-capture-group": "off",
           "unicorn/no-for-loop": "off",
           "unicorn/prefer-dom-node-append": "off",
           "unicorn/prefer-dom-node-remove": "off",
