@@ -50,7 +50,7 @@
     "xo": "^0.37.1"
   },
   "engines": {
-    "node": "10.x"
+    "node": "14.x"
   },
   "scripts": {
     "dev": "nodemon --watch assets/ --watch lib/ --watch scss/ --ext js,scss,svg --exec \"npm-run-all build start\"",
