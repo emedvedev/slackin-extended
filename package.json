@@ -41,7 +41,7 @@
     "tinycolor2": "^1.4.2"
   },
   "devDependencies": {
-    "lockfile-lint": "^4.6.1",
+    "lockfile-lint": "^4.6.2",
     "mocha": "^8.3.0",
     "nock": "^13.0.7",
     "nodemon": "^2.0.7",
