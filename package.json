@@ -94,7 +94,6 @@
       "spaced-comment": "off",
       "unicorn/explicit-length-check": "off",
       "unicorn/no-array-for-each": "off",
-      "unicorn/prefer-spread": "off",
       "unicorn/prevent-abbreviations": "off",
       "wrap-iife": [
         "error",
