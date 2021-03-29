@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+'use strict';
+
 const args = require('args');
 const hostenv = require('hostenv');
 const dbg = require('debug');
