@@ -1,0 +1,23 @@
+{
+  "join": "Únete a ",
+  "onSlack": "en Slack",
+  "emailPlaceholder": "tu@tudominio.com",
+  "onlineUsersNow": "usuarios en línea ahora de",
+  "registered": "registrados",
+  "userRegisteredSoFar": "usuarios registrados hasta ahora",
+  "getMyInvite": "Obtener mi Invitación",
+  "or": "o",
+  "signIn": "ingresa",
+  "agree": "Acepto el",
+  "coc": "Código de Conducta",
+  "errors": {
+    "notAPermittedChannel": "Canal no permitido",
+    "channel": "Canal",
+    "notFound": "no encontrado",
+    "noEmail": "No se proporcionó ningún email",
+    "invalidCaptcha": "Captcha inválido",
+    "invalidEmail": "Email inválido",
+    "emailNotAccepted": "Tu email no se encuentra en la lista de aceptados",
+    "agreeCoc": "Aceptar el CdC es obligatorio"
+  }
+}

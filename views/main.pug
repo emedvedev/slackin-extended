@@ -3,7 +3,7 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title Join #{name} on Slack!
+    title #{__('join')} #{name} #{__('onSlack')}!
 
     link(rel='shortcut icon', href=`${path}assets/favicon-32.png`)
     link(rel='stylesheet', href=`${path}assets/main.css`)
@@ -39,14 +39,14 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
             img(src=`${path}assets/slack.svg`, alt='Slack\'s logo', width='48', height='48')
 
       if channels && channels.length === 1
-        p Join #[strong= name] #[span ##{channels[0]}] on Slack.
+        p #{__('join')} #[strong= name] #[span ##{channels[0]}] #{__('onSlack')}.
       else
-        p Join #[strong= name] on Slack.
+        p #{__('join')} #[strong= name] #{__('onSlack')}.
 
       if active
-        p.status #[strong.active= active] users online now of #[strong.total= total] registered.
+        p.status #[strong.active= active] #{__('onlineUsersNow')} #[strong.total= total] #{__('registered')}.
       else
-        p.status #[strong.total= total] users are registered so far.
+        p.status #[strong.total= total] #{__('userRegisteredSoFar')}.
 
       form#invite
 
@@ -59,9 +59,9 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
             input(type='hidden', name='channel', value=channels[0])
 
         if iframe
-          input.form-item(type='email', name='email', placeholder='you@yourdomain.com', required)
+          input.form-item(type='email', name='email', placeholder=__('emailPlaceholder'), required)
         else
-          input.form-item(type='email', name='email', placeholder='you@yourdomain.com', autofocus, required)
+          input.form-item(type='email', name='email', placeholder=__('emailPlaceholder'), autofocus, required)
 
         if recaptcha.sitekey
           if recaptcha.invisible
@@ -77,11 +77,11 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
           .coc
             label
               input(type='checkbox', name='coc', value='1', required)
-              | I agree to the #[a(href=coc, rel='noopener', target='_blank') Code of Conduct].
+              | #{__('agree')} #[a(href=coc, rel='noopener', target='_blank') #{__('coc')}].
 
-        button.loading Get my Invite
+        button.loading #{__('getMyInvite')}
 
-      p.signin or #[a(href=`https://${org}.slack.com/`, target='_top') sign in].
+      p.signin #{__('or')} #[a(href=`https://${org}.slack.com/`, target='_top') #{__('signIn')}].
 
       unless iframe
         footer powered by #[a(href='https://github.com/emedvedev/slackin-extended', rel='noopener', target='_blank') slackin extended]

@@ -1,0 +1,23 @@
+{
+  "join": "Join",
+  "onSlack": "on Slack",
+  "emailPlaceholder": "you@yourdomain.com",
+  "onlineUsersNow": "users online now of",
+  "registered": "registered",
+  "userRegisteredSoFar": "users are registered so far",
+  "getMyInvite": "Get my Invite",
+  "or": "or",
+  "signIn": "sign in",
+  "agree": "I agree to the",
+  "coc": "Code of Conduct",
+  "errors": {
+    "notAPermittedChannel": "Not a permitted channel",
+    "channel": "Channel",
+    "notFound": "not found",
+    "noEmail": "No email provided",
+    "invalidCaptcha": "Invalid captcha",
+    "invalidEmail": "Invalid email",
+    "emailNotAccepted": "Your email is not on the accepted email list",
+    "agreeCoc": "Agreement to CoC is mandatory"
+  }
+}
