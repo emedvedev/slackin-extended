@@ -23,7 +23,7 @@
     "cross-env": "^7.0.3",
     "debug": "^4.3.1",
     "dotenv": "^8.2.0",
-    "email-regex": "^4.0.0",
+    "email-regex": "^5.0.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "hostenv": "3.13.0",
