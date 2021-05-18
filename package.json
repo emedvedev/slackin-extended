@@ -37,7 +37,7 @@
     "sass": "^1.32.13",
     "serve-favicon": "^2.5.0",
     "socket.io": "^2.4.1",
-    "superagent": "^3.8.3",
+    "superagent": "^6.1.0",
     "tinycolor2": "^1.4.2"
   },
   "devDependencies": {
