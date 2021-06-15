@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "lockfile-lint": "^4.6.2",
-    "mocha": "^8.4.0",
+    "mocha": "^9.0.0",
     "nock": "^13.1.0",
     "nodemon": "^2.0.7",
     "stylelint": "^13.13.1",
