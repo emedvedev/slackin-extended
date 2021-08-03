@@ -43,7 +43,7 @@
   "devDependencies": {
     "lockfile-lint": "^4.6.2",
     "mocha": "^8.4.0",
-    "nock": "^13.1.0",
+    "nock": "^13.1.1",
     "nodemon": "^2.0.12",
     "stylelint": "^13.13.1",
     "stylelint-config-twbs-bootstrap": "^2.2.3",
