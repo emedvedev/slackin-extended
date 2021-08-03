@@ -94,6 +94,8 @@
       "spaced-comment": "off",
       "unicorn/explicit-length-check": "off",
       "unicorn/no-array-for-each": "off",
+      "unicorn/numeric-separators-style": "off",
+      "unicorn/prefer-module": "off",
       "unicorn/prevent-abbreviations": "off",
       "wrap-iife": [
         "error",
@@ -124,6 +126,7 @@
           "prefer-destructuring": "off",
           "semi": "off",
           "unicorn/no-for-loop": "off",
+          "unicorn/numeric-separators-style": "off",
           "unicorn/prefer-dom-node-append": "off",
           "unicorn/prefer-dom-node-remove": "off",
           "unicorn/prefer-math-trunc": "off",
