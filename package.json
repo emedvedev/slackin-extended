@@ -48,7 +48,7 @@
     "stylelint": "^13.13.1",
     "stylelint-config-twbs-bootstrap": "^2.2.3",
     "supertest": "^6.1.4",
-    "xo": "^0.39.1"
+    "xo": "^0.42.0"
   },
   "engines": {
     "node": "14.x"
