@@ -2,6 +2,7 @@
 
 'use strict';
 
+const process = require('process');
 const args = require('args');
 const hostenv = require('hostenv');
 const dbg = require('debug');
