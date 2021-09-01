@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('process');
 const nock = require('nock');
 const request = require('supertest');
 const slackin = require('../lib');
