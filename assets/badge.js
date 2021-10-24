@@ -63,6 +63,7 @@
 
   // setup an "RPC" channel between iframe and us
   function setup(iframe) {
+    // eslint-disable-next-line no-bitwise
     var id = Math.random() * (1 << 24) | 0
     iframe.contentWindow.postMessage('slackin:' + id, '*')
     window.addEventListener('message', function (e) {
