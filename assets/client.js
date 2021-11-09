@@ -8,6 +8,7 @@ var form = body.querySelector('form#invite')
 var channel = form.elements.channel || {}
 var email = form.elements.email
 var coc = form.elements.coc
+var privacy = form.elements.privacy
 var button = body.querySelector('button')
 
 // remove loading state
@@ -28,7 +29,7 @@ function submitForm(ev) {
     return grecaptcha.execute()
   }
 
-  invite(channel ? channel.value : null, coc && coc.checked ? 1 : 0, email.value, gcaptcha_token, function (err, msg) {
+  invite(channel ? channel.value : null, coc && coc.checked ? 1 : 0, privacy && privacy.checked ? 1 : 0, email.value, gcaptcha_token, function (err, msg) {
     if (err) {
       button.removeAttribute('disabled')
       button.classList.add('error')
@@ -42,12 +43,13 @@ function submitForm(ev) {
 
 body.addEventListener('submit', submitForm)
 
-function invite(chan, coc, email, gcaptcha_response_value, fn) {
+function invite(chan, coc, privacy, email, gcaptcha_response_value, fn) {
   request
     .post(data.path + 'invite')
     .send({
       'g-recaptcha-response': gcaptcha_response_value,
       coc: coc,
+      privacy: privacy,
       channel: chan,
       email: email
     })

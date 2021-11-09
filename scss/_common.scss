@@ -84,7 +84,8 @@ body {
   }
 }
 
-.coc {
+.coc,
+.privacy {
   font-size: 1.2rem;
   padding: 1.5rem 0 .5rem;
   color: #666;
@@ -125,12 +126,14 @@ body {
 }
 
 html.iframe {
-  .coc {
+  .coc,
+  .privacy {
     font-size: 1.1rem;
     padding-top: 1rem;
   }
 
-  .coc input {
+  .coc input,
+  .privacy input {
     position: relative;
     top: -.2rem;
   }
