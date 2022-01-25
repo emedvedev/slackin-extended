@@ -47,7 +47,7 @@
     "nodemon": "^2.0.15",
     "stylelint": "^14.1.0",
     "stylelint-config-twbs-bootstrap": "^3.0.1",
-    "supertest": "^6.1.6",
+    "supertest": "^6.2.2",
     "xo": "^0.47.0"
   },
   "engines": {
