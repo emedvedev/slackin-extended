@@ -1,6 +1,4 @@
-![Slackin repo banner](https://github.com/zeit/art/blob/e081cf46e6609b51ac485dcc337ac6644c0da5e7/slackin/repo-banner.png)
-
-[![npm version](https://img.shields.io/npm/v/slackin-extended.svg)](https://www.npmjs.com/package/slackin-extended) [![Build Status](https://github.com/emedvedev/slackin-extended/workflows/Tests/badge.svg)](https://github.com/emedvedev/slackin-extended/actions?workflow=Tests) [![MIT License](https://img.shields.io/github/license/emedvedev/slackin-extended)](https://github.com/emedvedev/slackin-extended/blob/master/license.md) [![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/emedvedev/slackin-extended.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/emedvedev/slackin-extended/alerts/)
+[![npm version](https://img.shields.io/npm/v/slackin-extended)](https://www.npmjs.com/package/slackin-extended) [![Build Status](https://img.shields.io/github/workflow/status/emedvedev/slackin-extended/Tests/master?label=Tests&logo=github)](https://github.com/emedvedev/slackin-extended/actions?query=workflow%3ATests+branch%3Amaster) [![MIT License](https://img.shields.io/github/license/emedvedev/slackin-extended)](https://github.com/emedvedev/slackin-extended/blob/master/license.md) [![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/emedvedev/slackin-extended?logo=lgtm)](https://lgtm.com/projects/g/emedvedev/slackin-extended/alerts/)
 
 ## Features
 
