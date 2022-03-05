@@ -47,7 +47,7 @@
 
   // initialize realtime events asynchronously
   var script = document.createElement('script')
-  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.slim.min.js'
+  script.src = 'https://cdn.jsdelivr.net/npm/socket.io@4/client-dist/socket.io.min.js'
   script.addEventListener('load', function () {
     // use dom element for better cross browser compatibility
     var url = document.createElement('a')
