@@ -45,7 +45,7 @@
     "mocha": "^9.2.2",
     "nock": "^13.2.4",
     "nodemon": "^2.0.15",
-    "stylelint": "^14.7.1",
+    "stylelint": "^14.9.1",
     "stylelint-config-twbs-bootstrap": "^3.0.1",
     "supertest": "^6.2.2",
     "xo": "^0.48.0"
