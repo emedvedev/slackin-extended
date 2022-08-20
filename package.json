@@ -15,7 +15,7 @@
     "views/*.pug"
   ],
   "dependencies": {
-    "args": "^5.0.1",
+    "args": "^5.0.3",
     "autoprefixer": "^10.4.4",
     "body-parser": "^1.20.0",
     "compression": "^1.7.4",
