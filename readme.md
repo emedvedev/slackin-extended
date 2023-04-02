@@ -31,6 +31,16 @@ now secrets add slack-api-token "xoxb-YOUR-SLACK-TOKEN"
 now slackin-extended
 ```
 
+### Fly.io
+
+Set up [Fly.io](https://fly.io/) to run slackin-extended. You'll need to set a specific port to play well with the default fly port config.
+
+```bash
+git clone https://github.com/emedvedev/slackin-extended.git
+flyctl secrets set SLACK_SUBDOMAIN="myslack" SLACK_API_TOKEN="xoxb-YOUR-SLACK-TOKEN" SLACKIN_PORT=8080
+flyctl deploy
+```
+
 ### Docker
 
 The Docker container is available on Docker Hub: [emedvedev/slackin-extended](https://hub.docker.com/r/emedvedev/slackin-extended/).
