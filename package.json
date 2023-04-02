@@ -38,7 +38,7 @@
     "serve-favicon": "^2.5.0",
     "socket.io": "^4.6.1",
     "superagent": "^7.1.1",
-    "tinycolor2": "^1.4.2"
+    "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "lockfile-lint": "^4.10.1",
