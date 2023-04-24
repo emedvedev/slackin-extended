@@ -9,6 +9,8 @@
   $color-signin-link,
   $color-coc,
   $color-coc-link,
+  $color-privacy,
+  $color-privacy-link,
   $color-button-text,
   $color-button-background,
   $color-button-success-text,
@@ -48,6 +50,20 @@
 
       &:hover {
         background-color: $color-coc-link;
+        color: $color-background;
+      }
+    }
+  }
+
+  // Privacy Policy:
+  .privacy {
+    color: $color-privacy;
+
+    a {
+      color: $color-privacy-link;
+
+      &:hover {
+        background-color: $color-privacy-link;
         color: $color-background;
       }
     }

@@ -111,7 +111,7 @@
     div.style.lineHeight = '0'
     div.style.backgroundColor = '#fafafa'
     div.style.width = '25em'
-    div.style.height = '15.5em'
+    div.style.height = '30em'
     div.style.position = 'absolute'
     div.style.left = '-10000px'
     div.style.top = '-10000px'
@@ -123,7 +123,7 @@
     var ni = document.createElement('iframe')
     ni.className = '__slackin'
     ni.style.width = '25em'
-    ni.style.height = '15.5em'
+    ni.style.height = '30em'
     ni.style.borderWidth = 0
     ni.src = iframe.src.replace('iframe', 'iframe/dialog')
     ni.addEventListener('load', function () {

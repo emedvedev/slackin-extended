@@ -79,6 +79,12 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
               input(type='checkbox', name='coc', value='1', required)
               | I agree to the #[a(href=coc, rel='noopener', target='_blank') Code of Conduct].
 
+        if privacy
+          .privacy
+            label
+              input(type='checkbox', name='privacy', value='1', required)
+              | I agree to the #[a(href=privacy, rel='noopener', target='_blank') Privacy Policy].
+
         button.loading Get my Invite
 
       p.signin or #[a(href=`https://${org}.slack.com/`, target='_top') sign in].

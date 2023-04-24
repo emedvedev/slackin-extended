@@ -74,6 +74,10 @@ args
     process.env.SLACKIN_COC,
   )
   .option(
+    ['O', 'privacy'], 'Full URL to a privacy policy that must be agreed to',
+    process.env.SLACKIN_PRIVACY,
+  )
+  .option(
     ['S', 'css'], 'Full URL to a custom CSS file to use on the main page',
     process.env.SLACKIN_CSS,
   )
